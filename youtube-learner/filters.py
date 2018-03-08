@@ -1,79 +1,112 @@
 # General Libraries
 import re
+from enum import Enum
+import logging
 
 #Project Libraries
-import helper_filters as hf 
 
 
-COMMENT_CUTOFF_LEN = 80;
+LISTS_DIRECTORY = "./../word-lists/"
 
-KEEP_SONG_RELATED = 'keep_song_related'
-KEEP_TITLE_AND_ARTIST = 'keep_title_and_artist'
+class Action(Enum):
+    KEEP = 'keep'
+    REMOVE = 'remove'
+    REMOVE_EXCEPT = 'remove_except'
+    FILTER_BY_NUM_LIKES = 'likes'
+    FILTER_BY_LENGTH = 'length'
+    REMOVE_VADER_0 = 'vader_0'
 
-REMOVE_DUMB_COMMENTS = 'remove_dumb_people'
-REMOVE_IF_NO_LIKES = 'remove_if_no_likes'
-REMOVE_LONG = 'remove_long'
-REMOVE_MOVIE_RELATED = 'remove_movie_related'
-REMOVE_NONENGLISH_AND_IRRELEVANT = 'remove_nonenglish_irr'
-REMOVE_NONENGLISH = 'remove_nonenglish'
+def list_from_file(filename, min_length=None):
+    f = open(LISTS_DIRECTORY+filename, "r")
+    words = set(f.read().split())
+    if min_length is not None:
+        assert(isinstance(min_length, int))
+        words = set([word for word in words if len(word) > min_length])
 
-eng = hf.list_from_file("english_1000", min_length=4) 
+    return words
 
-# Runs Filters in the Order they are Specified
-def run_filters(filter_tag_list, comments, title, artist):
-    for filt in filter_tag_list:
-        (filter_fn, key_words) = filters[filt]
-        if filter_fn == comments_filter_title:
-            comments_filter_keep(comments, [artist, title])
+def run_filters(filter_list, comments):
+    """ Runs a list of filters in the order they appear on set of comments, returns filtered comments """
+    for filt in filter_list:
+        comments = filt.filter_comments(comments)
+    return comments
+
+class Filter:
+    def __init__(self, action, key_words=None, cutoff_lb=None, cutoff_ub=None, min_num_likes=None, name=None):
+        self.action = action
+        self.regex_key_words = '|'.join(key_words)
+        self.cutoff_lb = cutoff_lb
+        self.cutoff_ub = cutoff_ub
+        self.min_num_likes = min_num_likes
+        self.name = name
+
+    def __str__(self):
+        return self.name
+
+    def filter_comments(self, comments):
+        # TODO: turn this into a dictionary or something
+        if self.action == Action.KEEP:
+            return self.filter_keep(comments)
+        elif self.action == Action.REMOVE:
+            return self.filter_remove(comments)
+        elif self.action == Action.REMOVE_EXCEPT:
+            return self.filter_remove_except(comments)
+        elif self.action == Action.FILTER_BY_NUM_LIKES and self.min_num_likes is not None:
+            return self.filter_likes(comments)
+        elif self.action == Action.FILTER_BY_LENGTH and (self.cutoff_lb is not None or self.cutoff_ub is not None):
+            return self.filter_by_length(comments)
+        elif self.action == Action.REMOVE_VADER_0:
+            return self.filter_english_vader(comments)
         else:
-            comments = filter_fn(comments, key_words)
-    return comments
-
-# ====== Begin Filter Definitions ====== #
-def comments_filter_remove(comments, key_words):
-    regex_key_words = '|'.join(key_words)
-    return [comment for comment in comments if 
-            re.search(regex_key_words, comment.text, re.IGNORECASE) is None or 
-            comment.keep == True]
-
-def comments_filter_keep(comments, key_words):
-    regex_key_words = '|'.join(key_words)
-    for comment in comments:
-        match = re.search(regex_key_words, comment.text, re.IGNORECASE)
-        if match:
-            comment.keep = True
-    return comments
-
-def comments_filter_english_vader(comments, key_words = None):
-    return [comment for comment in comments if comment.vader_sentiment]
-
-def comments_filter_english(comments, key_words = None):
-    return [comment for comment in comments
-            if set(comment.text.lower().split()) & set(eng)]
-
-def comments_filter_likes(comments, key_words = None):
-    return [comment for comment in comments 
-            if comment.like_count > 0 or comment.keep == True]
-
-def comments_filter_long(comments, key_words):
-    return [comment for comment in comments 
-            if len(comment.text) < COMMENT_CUTOFF_LEN or comment.keep == True]
-
-def comments_filter_title(): return None
-# ====== End Filter Definitions ====== #
+            logging.ERROR('Filter of type action is not correctly configured')
+            return comments
 
 
-# Alphabetical 
-#TODO: choose whether re.search (can do multiple word matches, but also prone to substring matches), or whether use set intersection (can only do 1 word matches, but must be full word).
-filters = {
-      KEEP_SONG_RELATED: (comments_filter_keep, ['song', 'piece', 'sound'])
-    , KEEP_TITLE_AND_ARTIST: (comments_filter_title, [])
-    , REMOVE_DUMB_COMMENTS: (comments_filter_remove, ['setting', 'here'])
+    def filter_remove(self, comments):
+        return [comment for comment in comments if
+                re.search(self.regex_key_words, comment.text, re.IGNORECASE) is None or comment.keep]
+
+    def filter_remove_except(self, comments):
+        return [comment for comment in comments if
+                re.search(self.regex_key_words, comment.text, re.IGNORECASE) is not None or comment.keep]
+
+    def filter_keep(self, comments):
+        for comment in comments:
+            match = re.search(self.regex_key_words, comment.text, re.IGNORECASE)
+            if match:
+                comment.keep = True
+        return comments
+
+    def filter_by_length(self, comments):
+        if self.cutoff_ub is not None:
+            comments = [comment for comment in comments
+                if len(comment.text) <= self.cutoff_ub or comment.keep == True]
+        if self.cutoff_lb is not None:
+            comments = [comment for comment in comments
+                        if len(comment.text) >= self.cutoff_lb or comment.keep == True]
+        return comments
+
+    def filter_likes(self, comments):
+        return [comment for comment in comments
+                if comment.like_count >= self.min_num_likes or comment.keep == True]
+
+    def filter_english_vader(self, comments):
+        return [comment for comment in comments if comment.vader_sentiment]
+
+'''
+""" Some Example Filters """
+Example_Filters = [
+      Filter(Action.KEEP, list_from_file('music_words'))
+    , Filter(Action.REMOVE, ['setting', 'here'])
     # 'who's here from supernatural', 'lio rush brought me here'
-    # 'if you change the setting to 1.5 speed it is slightly faster' 
-    , REMOVE_IF_NO_LIKES: (comments_filter_likes, []) 
-    , REMOVE_LONG: (comments_filter_long, [])
-    , REMOVE_MOVIE_RELATED: (comments_filter_remove, ['Inhumans', 'Marvel', 'Lucifer'])
-    , REMOVE_NONENGLISH_AND_IRRELEVANT: (comments_filter_english_vader, [])
-    , REMOVE_NONENGLISH: (comments_filter_english, [])
-}
+    # 'if you change the setting to 1.5 speed it is slightly faster'
+    , Filter(Action.REMOVE, ['Inhumans', 'Marvel', 'Lucifer'])
+    , Filter(Action.REMOVE_EXCEPT, list_from_file('english_1000', 5))
+
+    , Filter(Action.LIKES, min_num_likes=1)
+    , Filter(Action.LENGTH, cutoff_ub=80)
+    , Filter(Action.VADER_0)
+]
+'''
+
+english_filter = Filter(Action.REMOVE_EXCEPT, list_from_file('english_1000', 5), 'english 1000 word filter')

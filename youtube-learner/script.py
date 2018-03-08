@@ -1,27 +1,17 @@
 
 #Project Libraries
 import objects as Objects
-import filters as Filters
+import filters as fltr
 import hdf5_helper as hh
 
 BASEDIR = '../../../data_sample/W/D'
 NUM_COMMENTS = 60
 
-#TODO: clean up the code
-'''
-remove video duration query
-hook up filters to word lists
-clean up filter naming and structure
-'''
-
-#TODO: potentially eliminate second query for video duration
-
-#TODO: running out of quota, only work on 2 level and maybe find a better key
-
-#TODO: 37: You Girl by Third Degree is not a music video (Girl getting Burned video)
-#TODO: check out why Duran Duran UMF listed has 23 comments, but only fetches 17
 #TODO: look at MSDB tags
 #TODO: ML correlations between tags and comments
+
+#TODO: improve comment filters to work really well
+#TODO: improve vader weighting (not all comments should have equal weighting)
 
 #Goals
 #TODO: check for correlation between "hotness" and comments
@@ -30,13 +20,9 @@ clean up filter naming and structure
 #Reach Goal
 #TODO: stop using MSDB and use YouTube videos directly, do in house music processing
 
-def get_comments(song, filter_tag_list, char, filt_songs=None):
-    song.fetch_youtube_comments(NUM_COMMENTS, filter_tag_list)
+def process_song(song, char, filt_songs=None):
     if song.error is None:
         print('     good') 
-        song.analyze_sentiment(Objects.SENTIMENT_VADER)
-        #song.analyze_sentiment(Objects.SENTIMENT_USER)
-        #song.compare_analysis()
         if len(song.comments) >= NUM_COMMENTS:
             if char == 'A' and filt_songs is not None:
                 filt_songs.append(song)
@@ -55,14 +41,14 @@ def get_comments(song, filter_tag_list, char, filt_songs=None):
             # assuming is a video duration error
             aggregate[5] +=1
 
-
-
-songs = hh.get_all_files(BASEDIR) #TODO songs = random.shuffle(songs)
+songs = hh.get_all_files(BASEDIR)
 print('Testing %d songs' % len(songs))
 num_total = 0
 filt_songs = []
 
 aggregate = [0]*7
+
+songs = songs[0:10]
 
 for idx, song_loc in enumerate(songs):
     h5 = hh.open_h5_file_read(song_loc)
@@ -72,10 +58,10 @@ for idx, song_loc in enumerate(songs):
 
     try:
         # A
-        songA = Objects.Song(artist, title)
         #filter_tag_list_A = []
-        filter_tag_list_A = [Filters.REMOVE_NONENGLISH]
-        get_comments(songA, filter_tag_list_A, 'A', filt_songs)
+        filter_tag_list_A = [fltr.english_filter]
+        songA = Objects.Song(artist, title, NUM_COMMENTS, filter_tag_list_A)
+        process_song(songA, 'A', filt_songs)
 
         # B
         '''
@@ -87,7 +73,7 @@ for idx, song_loc in enumerate(songs):
                 Filters.KEEP_SONG_RELATED, 
                 Filters.REMOVE_MOVIE_RELATED]
         filter_tag_list_B = [Filters.REMOVE_NONENGLISH_AND_IRRELEVANT]
-        get_comments(songB, filter_tag_list_B, 'B', filt_songs)
+        process_song(songB, filter_tag_list_B, 'B', filt_songs)
         '''
 
         h5.close()
