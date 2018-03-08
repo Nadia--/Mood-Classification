@@ -1,0 +1,6 @@
+# Directory to Exclude
+venv/
+.idea/
+
+# Types of Files to Exclude
+*__pycache__*
