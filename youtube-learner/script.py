@@ -1,5 +1,5 @@
 
-#Project Libraries
+# Project Libraries
 import objects as Objects
 import filters as fltr
 import hdf5_helper as hh
@@ -7,18 +7,23 @@ import hdf5_helper as hh
 BASEDIR = '../../../data_sample/W/D'
 NUM_COMMENTS = 60
 
-#TODO: look at MSDB tags
-#TODO: ML correlations between tags and comments
+#Easy Couple Hour Goal
+#TODO: check for correlation between "hotness" and comment vaderSentiment, print out a graph
 
-#TODO: improve comment filters to work really well
-#TODO: improve vader weighting (not all comments should have equal weighting)
+#Intermediate Project -- this will be useful in future, and can be used as a fall-back
+#TODO: use machine learning to classify muiscal genres (from most common tags) from MFCCs [Training]
+#TODO: download YouTube songs and generate inhouse MFCC
+#TODO: use the learned classifier to classify song into genres
 
-#Goals
-#TODO: check for correlation between "hotness" and comments
-#TODO: do mood classification on comments, check for correlation with chords, etc?
+#Ultimate Goal
+#TODO: use comments and video from same platform, do own music processing to extract various musical features, do ML on comments (labels) vs features.
+#TODO: extrapolate either
+#TODO      -- if someone states a mood, what musical attributes are likely to be found in the piece
+#TODO      -- if certain elements are found in the piece, what mood people will report
 
-#Reach Goal
-#TODO: stop using MSDB and use YouTube videos directly, do in house music processing
+#Enhancements
+#TODO: improve comment filters so as to make sure comments are ABOUT THE SONG (not other random things)
+#TODO: improve vader weighting if we're still using vader (not all comments should have equal weighting)
 
 def process_song(song, char, filt_songs=None):
     if song.error is None:

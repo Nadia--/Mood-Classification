@@ -3,7 +3,7 @@ import re
 from enum import Enum
 import logging
 
-#Project Libraries
+# Project Libraries
 
 
 LISTS_DIRECTORY = "./../word-lists/"
