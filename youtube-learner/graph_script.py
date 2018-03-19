@@ -27,7 +27,7 @@ for idx, song_loc in enumerate(songs):
         print('EXCEPTION occured with this piece, ignoring')
         aggr.add_exception()
 
-aggr.print_summary(filter_tag_list)
+aggr.print_summary()
 
 filtered_songs = aggr.get_filtered_songs()
 
