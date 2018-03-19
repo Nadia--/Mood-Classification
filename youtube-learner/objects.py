@@ -4,7 +4,8 @@ import re
 import json
 
 # Project Libraries
-import filters as Filters 
+import filters as Filters
+import hdf5_helper as hh
 
 # https://github.com/cjhutto/vaderSentiment
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
@@ -61,18 +62,42 @@ def query(base, parameters):
     json_result = urllib.request.urlopen(url).read().decode('utf-8')
     return json.loads(json_result)
 
-class Song:
-    def __init__(self, artist, title, NUM_COMMENTS, filter_list):
+class MSDBSong:
+    def __init__(self, song_loc):
+        self.song_loc = song_loc
+
+        h5 = hh.open_h5_file_read(self.song_loc)
+        self.artist = hh.get_artist_name(h5).decode('UTF-8')
+        self.title = hh.get_title(h5).decode('UTF-8')
+        h5.close()
+
+    def get_song_hotness(self):
+        h5 = hh.open_h5_file_read(self.song_loc)
+        song_hotness = hh.get_song_hotttnesss(h5)
+        h5.close()
+        return song_hotness
+
+    def get_artist_hotness(self):
+        h5 = hh.open_h5_file_read(self.song_loc)
+        artist_hotness = hh.get_artist_hotttnesss(h5)
+        h5.close()
+        return artist_hotness
+
+class Song(MSDBSong):
+    # TODO: will need to decouple this if we choose not to use MSDB
+    def __init__(self, song_loc, num_comments, filter_list):
+        super().__init__(song_loc)
         """
-        Obtains YouTube comments for specified song
-        :param artist: song artist
-        :param title: song title
-        :param NUM_COMMENTS: number of comments to retrieve
-        :param filter_list: filters to apply to comments
+        Initializes song object
+        :param song_loc: the location of the MSDB song file
+        :param num_comments: num_comments requested for song
+        :param filter_list: filters the comments will go through
         """
-        self.error = None 
-        self.artist = artist
-        self.title = title
+
+        self.num_comments_requested = num_comments
+        self.filter_list = filter_list
+
+        self.error = None
         self.youtube_title = None
         self.duration = None
         self.video_id = None
@@ -80,14 +105,18 @@ class Song:
         self.average_vader_sentiment = None #TODO: add weights
         self.average_user_sentiment = None
 
+    def print_header(self, idx):
+        print('%4d %s - %s' %(idx, self.artist, self.title))
+
+    def process_comments(self):
         self.fetch_video_id()
         if self.error is None:
-           self.fetch_youtube_comments(NUM_COMMENTS, filter_list)
+            self.fetch_youtube_comments(self.num_comments_requested, self.filter_list)
         if self.error is None:
-           self.analyze_sentiment(SENTIMENT_VADER)
-
+            self.analyze_sentiment(SENTIMENT_VADER)
 
     def is_good_duration(self, lower_bound_sec, upper_bound_sec):
+        # TODO: use the duration declared in MSDB data instead
         """
         Returns whether the video duration is within specified bounds
         Expensive because requires another query, which consumes quota
@@ -234,12 +263,13 @@ class Song:
             print(err)
 
 class SongsAggregate:
-    def __init__(self, num_comments, filt_songs=None):
+    def __init__(self, num_comments, filter_tag_list, filt_songs=None):
         self.aggregate = [0]*NUM_ERRORS
         self.num_comments = num_comments
+        self.filter_tag_list = filter_tag_list
         self.filt_songs = filt_songs
 
-    def process_song(self, song):
+    def add_song(self, song):
         if song.error is None:
             print('     good')
             if len(song.comments) >= self.num_comments:
@@ -263,12 +293,15 @@ class SongsAggregate:
     def add_exception(self):
         self.aggregate[6] += 1
 
+    def get_filtered_songs(self):
+        return self.filt_songs
+
     def percent_aggr(self, idx):
         return 100 * self.aggregate[idx] / sum(self.aggregate)
 
-    def print_summary(self, filter_tag_list_A):
+    def print_summary(self):
         print('\n\nSummary of Results \n')
-        print('parameters: threshold usable comments: %d, filters: %s' % (self.num_comments, str(filter_tag_list_A)))
+        print('parameters: threshold usable comments: %d, filters: %s' % (self.num_comments, str(self.filter_tag_list)))
         print('total number of songs: %d\n' % sum(self.aggregate))
 
         print('%2d%% GOOD (%d total)\n' % (self.percent_aggr(0), self.aggregate[0]))

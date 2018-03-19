@@ -10,6 +10,8 @@ NUM_COMMENTS = 60
 #Easy Couple Hour Goal
 #TODO: check for correlation between "hotness" and comment vaderSentiment, print out a graph
 
+#TODO: create min and max num comments - if below min error, but if above min, keep getting comments until you reach max
+
 #Intermediate Project -- this will be useful in future, and can be used as a fall-back
 #TODO: use machine learning to classify muiscal genres (from most common tags) from MFCCs [Training]
 #TODO: download YouTube songs and generate inhouse MFCC
@@ -37,41 +39,39 @@ etc general texture things
 
 songs = hh.get_all_files(BASEDIR)
 print('Testing %d songs' % len(songs))
-num_total = 0
 
-aggr = Objects.SongsAggregate(NUM_COMMENTS)
+filter_tag_list_A = [fltr.english_filter]
+aggrA = Objects.SongsAggregate(NUM_COMMENTS, filter_tag_list_A)
+'''
+filter_tag_list_B = [Filters.REMOVE_LONG,
+                     Filters.REMOVE_IF_NO_LIKES,
+                     Filters.REMOVE_DUMB_COMMENTS,
+                     Filters.KEEP_TITLE_AND_ARTIST,
+                     Filters.KEEP_SONG_RELATED,
+                     Filters.REMOVE_MOVIE_RELATED]
+filter_tag_list_B = [Filters.REMOVE_NONENGLISH_AND_IRRELEVANT]
+'''
 
 songs = songs[0:10]
 
 for idx, song_loc in enumerate(songs):
-    h5 = hh.open_h5_file_read(song_loc)
-    artist = hh.get_artist_name(h5).decode('UTF-8')
-    title = hh.get_title(h5).decode('UTF-8')
-    print('%4d %s - %s' %(idx, artist, title))
+    songA = Objects.Song(song_loc, NUM_COMMENTS, filter_tag_list_A)
 
     try:
         # A
-        filter_tag_list_A = [fltr.english_filter]
-        songA = Objects.Song(artist, title, NUM_COMMENTS, filter_tag_list_A)
-        aggr.process_song(songA)
+        songA.print_header(idx)
+        songA.process_comments()
+        aggrA.add_song(songA)
 
         # B
         '''
         songB = Objects.Song(artist, title)
-        filter_tag_list_B = [Filters.REMOVE_LONG,
-                Filters.REMOVE_IF_NO_LIKES, 
-                Filters.REMOVE_DUMB_COMMENTS, 
-                Filters.KEEP_TITLE_AND_ARTIST, 
-                Filters.KEEP_SONG_RELATED, 
-                Filters.REMOVE_MOVIE_RELATED]
-        filter_tag_list_B = [Filters.REMOVE_NONENGLISH_AND_IRRELEVANT]
         process_song(songB, filter_tag_list_B, 'B', filt_songs)
         '''
 
-        h5.close()
     except:
         #TODO: catch 403 error because it probably means i ran out of YouTube requests quota
         print('EXCEPTION occured with this piece, ignoring')
-        aggr.add_exception()
+        aggrA.add_exception()
 
-aggr.print_summary(filter_tag_list_A)
+aggrA.print_summary()
