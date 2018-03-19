@@ -32,15 +32,15 @@ def run_filters(filter_list, comments):
     return comments
 
 class Filter:
-    def __init__(self, action, key_words=None, cutoff_lb=None, cutoff_ub=None, min_num_likes=None, name=None):
+    def __init__(self, name, action, key_words=None, cutoff_lb=None, cutoff_ub=None, min_num_likes=None):
+        self.name = name
         self.action = action
         self.regex_key_words = '|'.join(key_words)
         self.cutoff_lb = cutoff_lb
         self.cutoff_ub = cutoff_ub
         self.min_num_likes = min_num_likes
-        self.name = name
 
-    def __str__(self):
+    def __repr__(self):
         return self.name
 
     def filter_comments(self, comments):
@@ -109,4 +109,4 @@ Example_Filters = [
 ]
 '''
 
-english_filter = Filter(Action.REMOVE_EXCEPT, list_from_file('english_1000', 5), 'english 1000 word filter')
+english_filter = Filter('english-1000-word-filter', Action.REMOVE_EXCEPT, list_from_file('english_1000', 5))

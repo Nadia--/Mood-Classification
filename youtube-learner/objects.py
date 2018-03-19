@@ -21,6 +21,7 @@ KEY = 'AIzaSyBAcQUU5I4FElmsYVK0irkDPVGQ_OLLkO0' #TODO use key that isnt from sta
 SENTIMENT_VADER = "vader"
 SENTIMENT_USER = "user"
 
+NUM_ERRORS = 7;
 ERROR_NO_RESULTS = "error: no results"
 ERROR_NO_VIDEOID = "error: no videoId tag"
 ERROR_NO_COMMENTS = "error: no comments"
@@ -231,5 +232,53 @@ class Song:
         self.error = err
         if DEBUG:
             print(err)
+
+class SongsAggregate:
+    def __init__(self, num_comments, filt_songs=None):
+        self.aggregate = [0]*NUM_ERRORS
+        self.num_comments = num_comments
+        self.filt_songs = filt_songs
+
+    def process_song(self, song):
+        if song.error is None:
+            print('     good')
+            if len(song.comments) >= self.num_comments:
+                self.aggregate[0] +=1
+                if self.filt_songs is not None:
+                    self.filt_songs.append(song)
+        else:
+            print('     %s' % song.error)
+            if song.error == ERROR_NO_RESULTS:
+                self.aggregate[1] +=1
+            elif song.error == ERROR_NO_VIDEOID:
+                self.aggregate[2] +=1
+            elif song.error == ERROR_NO_COMMENTS:
+                self.aggregate[3] +=1
+            elif song.error == ERROR_NO_TOKEN:
+                self.aggregate[4] +=1
+            else:
+                # assuming is a video duration error
+                self.aggregate[5] +=1
+
+    def add_exception(self):
+        self.aggregate[6] += 1
+
+    def percent_aggr(self, idx):
+        return 100 * self.aggregate[idx] / sum(self.aggregate)
+
+    def print_summary(self, filter_tag_list_A):
+        print('\n\nSummary of Results \n')
+        print('parameters: threshold usable comments: %d, filters: %s' % (self.num_comments, str(filter_tag_list_A)))
+        print('total number of songs: %d\n' % sum(self.aggregate))
+
+        print('%2d%% GOOD (%d total)\n' % (self.percent_aggr(0), self.aggregate[0]))
+
+        print('%2d%% no comments (%d)' % (self.percent_aggr(3), self.aggregate[3]))
+        print('%2d%% no next page token (%d)' % (self.percent_aggr(4), self.aggregate[4]))
+        print('%2d%% unexpected duration (%d)' % (self.percent_aggr(5), self.aggregate[5]))
+        print('%2d%% no video id (%d)' % (self.percent_aggr(2), self.aggregate[2]))
+        print('%2d%% no video results (%d)' % (self.percent_aggr(1), self.aggregate[1]))
+        print('%2d%% unhandled exceptions (%d)' % (self.percent_aggr(6), self.aggregate[6]))
+
 
 
