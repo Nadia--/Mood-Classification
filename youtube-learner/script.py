@@ -7,10 +7,8 @@ import hdf5_helper as hh
 BASEDIR = '../../../data_sample/W/D'
 NUM_COMMENTS = 60
 
-#Easy Couple Hour Goal
-#TODO: check for correlation between "hotness" and comment vaderSentiment, print out a graph
-
 #TODO: create min and max num comments - if below min error, but if above min, keep getting comments until you reach max
+#TODO: save data to file so dont have to query constantly
 
 #Intermediate Project -- this will be useful in future, and can be used as a fall-back
 #TODO: use machine learning to classify muiscal genres (from most common tags) from MFCCs [Training]
@@ -36,6 +34,7 @@ etc general texture things
 #Enhancements
 #TODO: improve comment filters so as to make sure comments are ABOUT THE SONG (not other random things)
 #TODO: improve vader weighting if we're still using vader (not all comments should have equal weighting)
+#TODO: re-run hotness vs sentiment graphs
 
 songs = hh.get_all_files(BASEDIR)
 print('Testing %d songs' % len(songs))
