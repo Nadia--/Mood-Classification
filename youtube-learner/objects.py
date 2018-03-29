@@ -23,10 +23,10 @@ SENTIMENT_VADER = "vader"
 SENTIMENT_USER = "user"
 
 NUM_ERRORS = 7;
-ERROR_NO_RESULTS = "error: no results"
+ERROR_NO_RESULTS = "error: no video results"
 ERROR_NO_VIDEOID = "error: no videoId tag"
 ERROR_NO_COMMENTS = "error: no comments"
-ERROR_NO_TOKEN = "error: no next page token (possibly not enough comments)"
+ERROR_NO_TOKEN = "error: no next page token (probably not enough comments)"
 
 class Comment:
     def __init__(self, comment, like_count):
@@ -85,7 +85,7 @@ class MSDBSong:
 
 class Song(MSDBSong):
     # TODO: will need to decouple this if we choose not to use MSDB
-    def __init__(self, song_loc, num_comments, filter_list):
+    def __init__(self, song_loc, min_comments, max_comments, filter_list):
         super().__init__(song_loc)
         """
         Initializes song object
@@ -94,7 +94,8 @@ class Song(MSDBSong):
         :param filter_list: filters the comments will go through
         """
 
-        self.num_comments_requested = num_comments
+        self.min_num_comments = min_comments
+        self.max_num_comments = max_comments
         self.filter_list = filter_list
 
         self.error = None
@@ -111,7 +112,7 @@ class Song(MSDBSong):
     def process_comments(self):
         self.fetch_video_id()
         if self.error is None:
-            self.fetch_youtube_comments(self.num_comments_requested, self.filter_list)
+            self.fetch_youtube_comments()
         if self.error is None:
             self.analyze_sentiment(SENTIMENT_VADER)
 
@@ -159,7 +160,7 @@ class Song(MSDBSong):
         self.video_id = slist['items'][chosen_result]['id']['videoId']
         self.youtube_title = slist['items'][chosen_result]['snippet']['title']
 
-    def fetch_youtube_comments(self, comment_count, filter_list):
+    def fetch_youtube_comments(self):
         """
         Fetches comments, filters them, and analyzes them with vader, assuming video id has already been populated
         :param comment_count: the desired number of comments to fetch
@@ -192,18 +193,18 @@ class Song(MSDBSong):
                 comment.vader_sentiment = vs['compound'] 
 
             # Filter Comments While Obtaining Them
-            comments = Filters.run_filters(filter_list, comments)
+            comments = Filters.run_filters(self.filter_list, comments)
 
-            num_added = min(len(comments), comment_count)
+            num_added = min(len(comments), self.max_num_comments - len(self.comments))
             self.comments += comments[:num_added]
-            comment_count -= num_added
 
-            if comment_count <= 0:
+            if len(self.comments) == self.max_num_comments:
                 # Done
                 break
             if 'nextPageToken' not in query_comments:
-                self.set_error(ERROR_NO_TOKEN)
-                return 
+                if len(self.comments) < self.min_num_comments:
+                    self.set_error(ERROR_NO_TOKEN)
+                break
             nextPageToken = query_comments['nextPageToken']
 
 
@@ -263,19 +264,18 @@ class Song(MSDBSong):
             print(err)
 
 class SongsAggregate:
-    def __init__(self, num_comments, filter_tag_list, filt_songs=None):
+    def __init__(self, min_num_comments, filter_tag_list, filt_songs=None):
         self.aggregate = [0]*NUM_ERRORS
-        self.num_comments = num_comments
+        self.min_num_comments = min_num_comments
         self.filter_tag_list = filter_tag_list
         self.filt_songs = filt_songs
 
     def add_song(self, song):
         if song.error is None:
             print('     good')
-            if len(song.comments) >= self.num_comments:
-                self.aggregate[0] +=1
-                if self.filt_songs is not None:
-                    self.filt_songs.append(song)
+            self.aggregate[0] +=1
+            if self.filt_songs is not None:
+                self.filt_songs.append(song)
         else:
             print('     %s' % song.error)
             if song.error == ERROR_NO_RESULTS:
@@ -301,13 +301,13 @@ class SongsAggregate:
 
     def print_summary(self):
         print('\n\nSummary of Results \n')
-        print('parameters: threshold usable comments: %d, filters: %s' % (self.num_comments, str(self.filter_tag_list)))
+        print('parameters: threshold usable comments: %d, filters: %s' % (self.min_num_comments, str(self.filter_tag_list)))
         print('total number of songs: %d\n' % sum(self.aggregate))
 
         print('%2d%% GOOD (%d total)\n' % (self.percent_aggr(0), self.aggregate[0]))
 
         print('%2d%% no comments (%d)' % (self.percent_aggr(3), self.aggregate[3]))
-        print('%2d%% no next page token (%d)' % (self.percent_aggr(4), self.aggregate[4]))
+        print('%2d%% not enough comments (no next page token) (%d)' % (self.percent_aggr(4), self.aggregate[4]))
         print('%2d%% unexpected duration (%d)' % (self.percent_aggr(5), self.aggregate[5]))
         print('%2d%% no video id (%d)' % (self.percent_aggr(2), self.aggregate[2]))
         print('%2d%% no video results (%d)' % (self.percent_aggr(1), self.aggregate[1]))

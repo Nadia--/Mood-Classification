@@ -8,17 +8,19 @@ import objects as Objects
 import filters as fltr
 import hdf5_helper as hh
 
-BASEDIR = '../../../data_sample/W/D/I'
-NUM_COMMENTS = 10
+BASEDIR = '../../../data_sample/W/D/'
+MIN_NUM_COMMENTS = 30
+MAX_NUM_COMMENTS = 200
 
 songs = hh.get_all_files(BASEDIR)
+songs = songs[:1000]
 print('Testing %d songs' % len(songs))
 
 filter_tag_list = [fltr.english_filter]
-aggr = Objects.SongsAggregate(NUM_COMMENTS, filter_tag_list, filt_songs=[])
+aggr = Objects.SongsAggregate(MIN_NUM_COMMENTS, filter_tag_list, filt_songs=[])
 
 for idx, song_loc in enumerate(songs):
-    song = Objects.Song(song_loc, NUM_COMMENTS, filter_tag_list)
+    song = Objects.Song(song_loc, MIN_NUM_COMMENTS, MAX_NUM_COMMENTS, filter_tag_list)
     song.print_header(idx)
 
     try:
