@@ -10,6 +10,8 @@ import hdf5_helper as hh
 # https://github.com/cjhutto/vaderSentiment
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
+#TODO: split this up into several python files
+
 DEBUG = False
 
 YOUTUBE_QUERY_URL = "https://www.googleapis.com/youtube/v3/"
@@ -293,7 +295,7 @@ class SongsAggregate:
     def add_exception(self):
         self.aggregate[6] += 1
 
-    def get_filtered_songs(self):
+    def get_passing_songs(self):
         return self.filt_songs
 
     def percent_aggr(self, idx):
