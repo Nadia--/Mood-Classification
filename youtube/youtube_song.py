@@ -1,5 +1,5 @@
 # Project Libraries
-import filters as fltr
+import filter as fltr
 
 # General Libraries
 import urllib.parse
@@ -32,12 +32,9 @@ def query(base, parameters):
 
 
 class YouTubeSong:
-    def __init__(self, artist, title, min_comments, max_comments):
+    def __init__(self, artist, title):
         self.artist = artist
         self.title = title
-
-        self.min_num_comments = min_comments
-        self.max_num_comments = max_comments
 
         self.error = None
         self.youtube_title = None
@@ -47,10 +44,10 @@ class YouTubeSong:
     def print_header(self, idx):
         print('%4d %s - %s' % (idx, self.artist, self.title))
 
-    def obtain_comments(self, filter_list):
+    def obtain_comments(self, min_num_comments, max_num_comments, filter_list):
         self.fetch_video_id()
         if self.error is None:
-            self.fetch_youtube_comments(filter_list)
+            self.fetch_youtube_comments(min_num_comments, max_num_comments, filter_list)
 
     def fetch_video_id(self):
         """
@@ -72,7 +69,7 @@ class YouTubeSong:
         self.video_id = slist['items'][chosen_result]['id']['videoId']
         self.youtube_title = slist['items'][chosen_result]['snippet']['title']
 
-    def fetch_youtube_comments(self, filter_list):
+    def fetch_youtube_comments(self, min_num_comments, max_num_comments, filter_list):
         """
         Fetches comments, filters them, and analyzes them with vader, assuming video id has already been populated
         :param comment_count: the desired number of comments to fetch
@@ -100,14 +97,14 @@ class YouTubeSong:
             # Filter Comments While Obtaining Them
             comments = fltr.run_filters(filter_list, comments)
 
-            num_added = min(len(comments), self.max_num_comments - len(self.comments))
+            num_added = min(len(comments), max_num_comments - len(self.comments))
             self.comments += comments[:num_added]
 
-            if len(self.comments) == self.max_num_comments:
+            if len(self.comments) == max_num_comments:
                 # Done
                 break
             if 'next_page_token' not in query_comments:
-                if len(self.comments) < self.min_num_comments:
+                if len(self.comments) < min_num_comments:
                     self.set_error(FetchingError.ERROR_NO_TOKEN)
                 break
             next_page_token = query_comments['nextPageToken']
@@ -116,13 +113,12 @@ class YouTubeSong:
         """
         string representation of self
         """
-        pairs = [str(comment) for comment in self.comments]
 
         rep_str = '%s by %s\n\nvideo id: %s\nresults: %d' % (
             self.title, self.artist, self.video_id, len(self.comments))
         rep_str += '\n'
 
-        return '\n' + rep_str + '\n'.join(pairs) + '\n'
+        return '\n' + rep_str + '\n'.join(self.comments) + '\n'
 
     def set_error(self, err):
         self.error = err
