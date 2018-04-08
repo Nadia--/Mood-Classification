@@ -1,0 +1,154 @@
+
+
+Scraping 200 songs for genre: b'rock'
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[62. 11.]
+ [ 3. 24.]]
+Total Accuracy: 0.86
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[53. 20.]
+ [18.  9.]]
+Total Accuracy: 0.62
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[64.  9.]
+ [ 9. 18.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[61. 12.]
+ [19.  8.]]
+Total Accuracy: 0.69
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[70.  3.]
+ [ 8. 19.]]
+Total Accuracy: 0.89
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[54. 19.]
+ [22.  5.]]
+Total Accuracy: 0.59
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[66.  7.]
+ [ 5. 22.]]
+Total Accuracy: 0.88
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[55. 18.]
+ [19.  8.]]
+Total Accuracy: 0.63
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[63. 10.]
+ [ 6. 21.]]
+Total Accuracy: 0.84
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[57. 16.]
+ [17. 10.]]
+Total Accuracy: 0.67
+
+Results for genre: b'rock'
+Average Training Accuracy: 0.86
+Average Testing Accuracy: 0.64
+
+
+Scraping 200 songs for genre: b'jazz'
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32.  2.]
+ [17. 49.]]
+Total Accuracy: 0.81
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[10. 23.]
+ [26. 41.]]
+Total Accuracy: 0.51
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[26.  8.]
+ [10. 56.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[12. 21.]
+ [19. 48.]]
+Total Accuracy: 0.60
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29.  5.]
+ [12. 54.]]
+Total Accuracy: 0.83
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[16. 17.]
+ [25. 42.]]
+Total Accuracy: 0.58
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29.  5.]
+ [12. 54.]]
+Total Accuracy: 0.83
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[17. 16.]
+ [25. 42.]]
+Total Accuracy: 0.59
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28.  6.]
+ [13. 53.]]
+Total Accuracy: 0.81
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[21. 12.]
+ [26. 41.]]
+Total Accuracy: 0.62
+
+Results for genre: b'jazz'
+Average Training Accuracy: 0.82
+Average Testing Accuracy: 0.58
