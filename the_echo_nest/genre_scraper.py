@@ -41,7 +41,7 @@ def scrape_genres(basedir, weightType, limit=None):
     for song_loc in songs:
         h5 = hh.open_h5_file_read(song_loc)
 
-        artist_tags = hh.get_artist_terms(h5)
+        artist_tags = [term.decode('utf-8') for term in hh.get_artist_terms(h5)]
 
         if weightType == WeightType.BINARY:
             add_weights(tags_counts, artist_tags)
