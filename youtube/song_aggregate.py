@@ -27,6 +27,16 @@ class SongAggregateScraper:
 
 
     def scrape(self, basedir, min_num_comments, max_num_comments, filter_list, limit=None, save_filtered=True):
+        """
+        Scrape YouTubeSong comments from YouTube songs that correspond to TheEchoNest songs
+
+        :param basedir: the directory of TheEchoNest data to scrape
+        :param min_num_comments: the min number of comments for a YouTubeSong
+        :param max_num_comments: the max number of comments for a YouTubeSong
+        :param filter_list: the list of filters to run on the comments, while fetching them
+        :param limit: a max number of songs (within directory) to scrape
+        :param save_filtered: boolean - whether to save passing songs in an array or not
+        """
         # Parameter Metadata
         self.basedir = basedir
         self.limit = limit
@@ -67,11 +77,13 @@ class SongAggregateScraper:
             h5.close()
 
     def load_from_file(self, filename):
+        """ Loads an instance of self from filename """
         with open(CACHE_DIRECTORY+filename, "r") as savefile:
             saved_self = jsonpickle.decode(json.load(savefile))
             self.__dict__.update(saved_self.__dict__)
 
     def save_to_file(self, filename):
+        """ Saves an instance of self in filename """
         with open(CACHE_DIRECTORY+filename, "w") as savefile:
             json.dump(jsonpickle.encode(self), savefile)
 

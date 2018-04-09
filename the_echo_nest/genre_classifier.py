@@ -6,8 +6,19 @@ import numpy as np
 import random
 from sklearn import mixture
 
+"""
+API for creating a binary classifier for a specific genre using MFCCs from TheEchoNest song data
+"""
 
 def scrape_songs_by_genre(basedir, genre, limit):
+    """
+    Returns the mfccs of songs that are in the genre, and outside of the genre
+
+    :param basedir: the directory of songs we should classify
+    :param genre: the genre we are looking to classify
+    :param limit: the maximum number of songs within the directory that should be classified
+    :return: mffcs of songs in the genre, mfccs of songs not in the genre
+    """
     songs = hh.get_all_files(basedir)
     if limit:
         songs = songs[:limit]
@@ -32,6 +43,9 @@ def scrape_songs_by_genre(basedir, genre, limit):
 
 
 def shuffle_examples(examples):
+    """
+    Returns a shuffled version of examples array
+    """
     perms = [i for i in range(len(examples))]
     random.shuffle(perms)
     examples_shuffled = [examples[i] for i in perms]
@@ -39,6 +53,12 @@ def shuffle_examples(examples):
 
 
 def is_in_genre_prediction(positive_model, negative_model, example_mfccs):
+    """
+    Returns whether the example is in the genre or not
+    :param positive_model: the model describing songs that are in the genre
+    :param negative_model: the model describing songs outside of the genre
+    :param example_mfccs: the example we are classifying
+    """
     pos_log_prob = positive_model.score(example_mfccs)
     neg_log_prob = negative_model.score(example_mfccs)
     if pos_log_prob > neg_log_prob:
@@ -47,6 +67,14 @@ def is_in_genre_prediction(positive_model, negative_model, example_mfccs):
         return False
 
 def evaluate_classifier(positive_model, negative_model, positive_data, negative_data):
+    """
+    Evaluates a 2x2 matrix of actual vs predicted labels (in genre or out of genre) and returns prediction accuracy
+    :param positive_model: the model describing songs that are in the genre
+    :param negative_model: the model describing songs outside of the genre
+    :param positive_data: mffcs of songs that are part of the genre
+    :param negative_data: mffcs of songs that are outside of the genre
+    :return: accuracy of classifier on the given examples
+    """
     data = []
     data.extend(positive_data)
     data.extend(negative_data)
@@ -77,6 +105,17 @@ def evaluate_classifier(positive_model, negative_model, positive_data, negative_
 
 
 def run_trial(positive_examples, negative_examples, split, num_components, covariance_type):
+    """
+    Runs a single trial of creating and and evaluating a classifier
+    Shuffles the data before every trial and splits it into training and testing data
+    Returns the model of the classifier and its accuracies on traing and testing data
+
+    :param positive_examples: mffcs of songs that are part of the genre
+    :param negative_examples: mffcs of songs that are outside of the genre
+    :param split: percent split in training vs testing data
+    :param num_components: number of components in the gaussian mixture model
+    :param covariance_type: the type of covariance in the gaussian mixture model
+    """
     num_pos_training = round(split * len(positive_examples))
     num_neg_training = round(split * len(negative_examples))
 
@@ -112,6 +151,20 @@ def run_trial(positive_examples, negative_examples, split, num_components, covar
 
 
 def learn_classifier(basedir, genre, split=0.5, num_trials=1, num_components=5, covariance_type='full', limit=None):
+    """
+    Divides up to limit songs in basedir by belonging to a genre or not
+    Runs up to num_trials of creating and evaluating a classifier for those songs and prints average accuracy
+    Returns the classifier with the best accuracy on test data
+
+    :param basedir: the directory of songs we should classify
+    :param genre: the genre we are looking to classify
+    :param split: percent split in training vs testing data
+    :param num_trials: the number of trials to run
+    :param num_components: number of components in the gaussian mixture model
+    :param covariance_type: the type of covariance in the gaussian mixture model
+    :param limit: the maximum number of songs within the directory that should be classified
+    :return:
+    """
     positive_examples, negative_examples = scrape_songs_by_genre(basedir, genre, limit)
 
     avg_training_accuracy = 0
