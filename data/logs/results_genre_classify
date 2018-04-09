@@ -1,12 +1,154 @@
-Scraping 67 songs
-Scraping 67 songs
-Scraping 67 songs
 
-Most Popular Tags
-[('rock', 43), ('pop', 41), ('electronic', 34), ('jazz', 28), ('united states', 26), ('hip hop', 25), ('indie', 22), ('alternative rock', 20), ('electro', 19), ('alternative', 18), ('downtempo', 17), ('indie rock', 17), ('blues', 17), ('synthpop', 16), ('soul', 15), ('instrumental', 15), ('house', 15), ('techno', 15), ('germany', 15), ('pop rock', 15), ('punk', 14), ('female vocalist', 14), ('experimental', 14), ('easy listening', 14), ('latin', 13), ('acoustic', 13), ('disco', 13), ('folk', 13), ('soundtrack', 13), ('funk', 12), ('hardcore', 12), ('american', 12), ('electronica', 12), ('vocal', 12), ('singer-songwriter', 12), ('guitar', 12), ('world', 11), ('ambient', 11), ('breakbeat', 11), ('trance', 10), ('dance', 10), ('progressive rock', 10), ('trip hop', 10), ('heavy metal', 10), ('rap', 10), ('chill-out', 10), ('folk rock', 10), ('hard rock', 9), ('europop', 9), ('tech house', 9), ('french', 9), ('r&b', 9), ('pop rap', 9), ('ballad', 9), ('new wave', 9), ('reggae', 9), ('metal', 8), ('psychedelic', 8), ('fusion', 8), ('swing', 8), ('80s', 8), ('italy', 7), ('canada', 7), ('classical', 7), ('smooth jazz', 7), ('male', 7), ('california', 7), ('italian disco', 7), ('male vocalist', 7), ('classic rock', 7), ('club', 6), ('cover', 6), ('noise', 6), ('deep house', 6), ('dub', 6), ('country', 6), ('soft rock', 6), ('european', 6), ('urban', 6), ('emo', 5), ('piano', 5), ('60s', 5), ('progressive trance', 5), ('drum and bass', 5), ('death metal', 5), ('intelligent dance music', 5), ('progressive house', 5), ('industrial', 5), ('underground hip hop', 5), ('big band', 5), ('00s', 5), ('minimal', 5), ('future jazz', 5), ('england', 5), ('jungle music', 5), ('female', 5), ('classic', 5), ('garage rock', 5), ('british', 5), ('nederland', 5)]
 
-Most Popular Tag Frequencies
-[('rock', 38.86407581975626), ('pop', 31.825967566019248), ('electronic', 29.22685164595951), ('jazz', 23.464792565060915), ('hip hop', 22.21805257013234), ('electro', 16.506514512250444), ('indie', 15.71520992045806), ('downtempo', 14.614805204907283), ('indie rock', 13.99219708038157), ('blues', 13.65586399677012), ('alternative rock', 13.56256453518867), ('alternative', 13.155023745268434), ('pop rock', 12.665331643757993), ('techno', 12.358238889747039), ('united states', 11.567089641844337), ('easy listening', 11.336265527461979), ('house', 11.241871623577115), ('disco', 10.923504462142061), ('punk', 10.625242604719858), ('synthpop', 10.610293443547288), ('female vocalist', 10.486231129058107), ('singer-songwriter', 10.359504603585833), ('experimental', 9.855200220214428), ('soul', 9.63974835364517), ('germany', 9.412696413816308), ('soundtrack', 9.265545504835176), ('folk', 9.21474707190512), ('funk', 9.063296146073087), ('electronica', 8.932167371368765), ('instrumental', 8.733274442958109), ('heavy metal', 8.597411528086397), ('trance', 8.592296575999114), ('latin', 8.50280018518001), ('trip hop', 8.47188749020234), ('folk rock', 8.469761622053326), ('rap', 8.224212977024623), ('ambient', 7.788447397428778), ('breakbeat', 7.788246891040377), ('europop', 7.6573145310252855), ('acoustic', 7.653845462270915), ('hardcore', 7.577969297950556), ('american', 7.522848582858591), ('tech house', 7.45228965610303), ('dance', 7.28392408494917), ('progressive rock', 7.279385498137589), ('new wave', 7.237109619078718), ('chill-out', 7.153778372972191), ('world', 7.148386111235333), ('hard rock', 7.091578232418486), ('pop rap', 7.086292842638475), ('reggae', 7.069067160843176), ('ballad', 6.467115372453449), ('guitar', 6.216768067934225), ('vocal', 5.949471189488368), ('classic rock', 5.864350562436642), ('metal', 5.702841267082343), ('italian disco', 5.585349893571641), ('deep house', 5.218117104796903), ('fusion', 5.078312727829437), ('swing', 4.929453152181101), ('psychedelic', 4.896979395086959), ('smooth jazz', 4.890768498719296), ('french', 4.887144753299332), ('soft rock', 4.87987603561279), ('classical', 4.8284938376496065), ('chanson', 4.558855388813249), ('dub', 4.534306215410442), ('male vocalist', 4.532174388883578), ('garage rock', 4.2217541683032795), ('california', 4.155322329388389), ('future jazz', 4.113445581402584), ('progressive trance', 4.091570441137991), ('emo', 3.951374792712655), ('80s', 3.925692544484648), ('italy', 3.925490106125482), ('canada', 3.8343531202288097), ('club', 3.8079696271618952), ('progressive house', 3.8051160898865137), ('r&b', 3.7550768570157453), ('jungle music', 3.712237598438822), ('country', 3.700278043350133), ('intelligent dance music', 3.69943737558084), ('male', 3.6413122862996152), ('acid jazz', 3.598373119309101), ('noise', 3.5327339896418266), ('psychobilly', 3.465833396479635), ('indie pop', 3.4478043933893474), ('industrial', 3.362113733670851), ('death metal', 3.3151001063436403), ('free jazz', 3.304191338572087), ('rockabilly', 3.2785402300838133), ('gothic rock', 3.2236290064060324), ('uk garage', 3.222872715168786), ('german pop', 3.2126397522334607), ('power pop', 3.1545878244875762), ('country rock', 3.134313499629669), ('minimal', 3.127800754646404), ('big beat', 3.093955197416266), ('underground hip hop', 3.0920015432893706), ('female', 3.0634591219765586)]
+Scraping 200 songs for genre: rock
 
-Most Popular Tag Weights
-[('rock', 32.984745754786616), ('pop', 28.511358010395178), ('electronic', 25.496945411226232), ('hip hop', 21.184228518389407), ('jazz', 21.04133168846278), ('united states', 16.21720580431032), ('electro', 15.696656829519021), ('downtempo', 14.349808845868791), ('indie', 14.020863575881991), ('alternative rock', 13.256192927204955), ('blues', 13.191588012181763), ('indie rock', 13.189127788195956), ('pop rock', 12.820579472344674), ('alternative', 11.892547789866493), ('techno', 11.887761132135108), ('easy listening', 11.65409106786772), ('synthpop', 11.520231782739604), ('disco', 11.368313956986402), ('house', 10.990183021045775), ('female vocalist', 10.744121083140062), ('germany', 10.448172103199745), ('punk', 9.678004875582538), ('soul', 9.634230600950369), ('singer-songwriter', 9.543101676266083), ('soundtrack', 9.435740047572153), ('experimental', 9.385531348080525), ('trip hop', 9.179600827892413), ('funk', 8.942253426736091), ('latin', 8.70822671295293), ('instrumental', 8.652079518462124), ('folk', 8.63516769610806), ('breakbeat', 8.629229770466807), ('folk rock', 8.62573078923353), ('europop', 8.52879362779429), ('chill-out', 8.429285069205214), ('trance', 8.321530866962044), ('heavy metal', 8.270666687070088), ('electronica', 8.207934171042638), ('tech house', 8.14304430178097), ('rap', 7.993429057610087), ('pop rap', 7.963423428762358), ('acoustic', 7.865854294702475), ('hardcore', 7.437280201018402), ('ballad', 7.377393114500384), ('ambient', 7.3722132450960505), ('progressive rock', 7.2930487077844495), ('american', 7.289030229410685), ('new wave', 7.245252005966701), ('world', 7.202623855617154), ('vocal', 7.186458051452126), ('reggae', 6.9898103482815), ('dance', 6.9062837744435495), ('guitar', 6.861079299607016), ('hard rock', 6.7196979376156), ('italian disco', 6.142790927457855), ('swing', 5.587303333902685), ('classic rock', 5.586206269500782), ('fusion', 5.5132083498145175), ('smooth jazz', 5.447883643457143), ('deep house', 5.427677446505865), ('french', 5.207735485509537), ('soft rock', 5.200133663192265), ('metal', 5.19307107260174), ('r&b', 5.126694542039119), ('male vocalist', 5.045162457550132), ('psychedelic', 4.961771677076893), ('classical', 4.922005502121287), ('italy', 4.853056975344162), ('california', 4.8017935734419925), ('canada', 4.765230262763612), ('chanson', 4.709922121352716), ('dub', 4.682258637041359), ('future jazz', 4.522948534607378), ('male', 4.425260341366282), ('club', 4.358641555824086), ('progressive trance', 4.3566947071709805), ('garage rock', 4.340428479551862), ('jungle music', 4.242861044412717), ('progressive house', 4.227709289605006), ('intelligent dance music', 4.19747396225731), ('80s', 4.136574763584617), ('country', 4.021877804945469), ('emo', 3.9183265594608763), ('noise', 3.77669013816842), ('psychobilly', 3.7200731496974493), ('uk garage', 3.6976709517843145), ('european', 3.677713631887721), ('underground hip hop', 3.6768850344318427), ('big band', 3.638250635249352), ('acid jazz', 3.6346277749953835), ('german pop', 3.5902328166986397), ('urban', 3.5779820986499065), ('free jazz', 3.515717846243183), ('big beat', 3.492417013857833), ('country rock', 3.4695759935764174), ('industrial', 3.4537790506423134), ('gothic rock', 3.4445594384310994), ('rockabilly', 3.410396468348742), ('england', 3.4002039146052683), ('death metal', 3.36186049796298)]
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[62. 11.]
+ [ 4. 23.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[54. 19.]
+ [19.  8.]]
+Total Accuracy: 0.62
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[67.  6.]
+ [ 4. 23.]]
+Total Accuracy: 0.90
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[59. 14.]
+ [18.  9.]]
+Total Accuracy: 0.68
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[69.  4.]
+ [ 7. 20.]]
+Total Accuracy: 0.89
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[59. 14.]
+ [18.  9.]]
+Total Accuracy: 0.68
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[62. 11.]
+ [ 7. 20.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[50. 23.]
+ [20.  7.]]
+Total Accuracy: 0.57
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[69.  4.]
+ [10. 17.]]
+Total Accuracy: 0.86
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[61. 12.]
+ [19.  8.]]
+Total Accuracy: 0.69
+
+Results for genre: rock
+Average Training Accuracy: 0.86
+Average Testing Accuracy: 0.65
+
+
+Scraping 200 songs for genre: jazz
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30.  4.]
+ [15. 51.]]
+Total Accuracy: 0.81
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[19. 14.]
+ [34. 33.]]
+Total Accuracy: 0.52
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29.  5.]
+ [19. 47.]]
+Total Accuracy: 0.76
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[19. 14.]
+ [31. 36.]]
+Total Accuracy: 0.55
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32.  2.]
+ [13. 53.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[16. 17.]
+ [37. 30.]]
+Total Accuracy: 0.46
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30.  4.]
+ [ 7. 59.]]
+Total Accuracy: 0.89
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[11. 22.]
+ [15. 52.]]
+Total Accuracy: 0.63
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30.  4.]
+ [10. 56.]]
+Total Accuracy: 0.86
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[14. 19.]
+ [27. 40.]]
+Total Accuracy: 0.54
+
+Results for genre: jazz
+Average Training Accuracy: 0.83
+Average Testing Accuracy: 0.54
