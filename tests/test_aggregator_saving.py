@@ -18,8 +18,9 @@ class TestSavingLoading(TestCase):
         aggr.scrape(BASEDIR, MIN_NUM_COMMENTS, MAX_NUM_COMMENTS, filter_list, limit=limit)
         good_songs = aggr.get_passing_songs()
         self.assertTrue(aggr.max_num_comments == MAX_NUM_COMMENTS, "aggregator metadata")
+        self.assertTrue(aggr.aggregate[3] == 2, "aggregate statistics")
         self.assertTrue(len(good_songs) == 1, "scraper passing songs")
-        self.assertTrue(aggr.aggregate[3] == 2, "aggregator statistics")
+        self.assertEqual(good_songs[0].comments[0], "Who still listening in 2018?", "passing songs comments")
 
         aggr.save_to_file('test_file')
 
