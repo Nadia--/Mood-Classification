@@ -8,13 +8,14 @@ import json
 import jsonpickle
 import logging
 
-CACHE_DIRECTORY = "./../data/youtube_cache/"
+CACHE_DIRECTORY = "./../data/youtube_data/comments/"
 NUM_ERRORS = 6
 
 class SongAggregateScraper:
     def __init__(self):
         # Parameter Metadata
         self.basedir = None
+        self.video_ids = None
         self.limit = None
         self.min_num_comments = None
         self.max_num_comments = None
@@ -25,16 +26,58 @@ class SongAggregateScraper:
         self.aggregate = None
         self.passing_songs = None
 
-
-    def scrape(self, basedir, min_num_comments, max_num_comments, filter_list, limit=None, save_filtered=True):
+    def scrape_video_ids(self, video_ids, min_num_comments, max_num_comments, filter_list, save_filtered=True):
         """
-        Scrape YouTubeSong comments from YouTube songs that correspond to TheEchoNest songs
+        Scrape YouTubeSong comments from YouTube songs that correspond to list of video_ids
 
-        :param basedir: the directory of TheEchoNest data to scrape
+        :param video_ids: the YouTube video ids to scrape_from_echonest
         :param min_num_comments: the min number of comments for a YouTubeSong
         :param max_num_comments: the max number of comments for a YouTubeSong
         :param filter_list: the list of filters to run on the comments, while fetching them
-        :param limit: a max number of songs (within directory) to scrape
+        :param limit: a max number of songs (within directory) to scrape_from_echonest
+        :param save_filtered: boolean - whether to save passing songs in an array or not
+        """
+        # Parameter Metadata
+        self.video_ids = video_ids
+        self.min_num_comments = min_num_comments
+        self.max_num_comments = max_num_comments
+        self.filter_list = filter_list
+        self.save_filtered = save_filtered
+
+        # Data Storage
+        self.aggregate = [0]*NUM_ERRORS
+        self.passing_songs = []
+
+        self.start_video_id_scrape()
+
+    def start_video_id_scrape(self):
+        """ Runs through YouTube video ids and scrapes their comments """
+
+        print('Scraping %d youtube songs' % len(self.video_ids))
+
+        for idx, video_id in enumerate(self.video_ids):
+            song = YouTubeSong(video_id=video_id)
+
+            try:
+                song.print_header(idx)
+                song.obtain_comments(self.min_num_comments, self.min_num_comments, self.filter_list)
+                self.add(song)
+
+            except:
+                # TODO: catch 403 error because it probably means i ran out of YouTube requests quota
+                print('     EXCEPTION occurred with this piece, ignoring')
+                self.add_exception()
+
+
+    def scrape_from_echonest(self, basedir, min_num_comments, max_num_comments, filter_list, limit=None, save_filtered=True):
+        """
+        Scrape YouTubeSong comments from YouTube songs that correspond to TheEchoNest songs
+
+        :param basedir: the directory of TheEchoNest data to scrape_from_echonest
+        :param min_num_comments: the min number of comments for a YouTubeSong
+        :param max_num_comments: the max number of comments for a YouTubeSong
+        :param filter_list: the list of filters to run on the comments, while fetching them
+        :param limit: a max number of songs (within directory) to scrape_from_echonest
         :param save_filtered: boolean - whether to save passing songs in an array or not
         """
         # Parameter Metadata
@@ -49,9 +92,10 @@ class SongAggregateScraper:
         self.aggregate = [0]*NUM_ERRORS
         self.passing_songs = []
 
-        self.start_scrape()
+        self.start_echonest_scrape()
 
-    def start_scrape(self):
+    def start_echonest_scrape(self):
+        """ Runs through EchoNest song data, extracts artist name and title, searches YouTube, and extracts comments """
         songs = hh.get_all_files(self.basedir)
         if self.limit:
             songs = songs[:self.limit]
@@ -88,6 +132,7 @@ class SongAggregateScraper:
             json.dump(jsonpickle.encode(self), savefile)
 
     def add(self, song):
+        """ Adds song into aggregate statistics, and into self.passing_songs if it has sufficient comments """
         if song.error is None:
             print('     good')
             self.aggregate[0] +=1
@@ -117,9 +162,14 @@ class SongAggregateScraper:
         return 100 * self.aggregate[idx] / sum(self.aggregate)
 
     def print_summary(self):
+        """ Prints aggregate statistics of the scrape """
+
         print('\n\nSummary of Results \n')
         print('parameters:')
-        print('num songs scraped: %d' % self.limit)
+        if self.basedir:
+            print('num songs scraped: %d' % self.limit)
+        else:
+            print('num songs scraped: %d' % len(self.video_ids))
         print('min comments: %d' % self.min_num_comments)
         print('max comments: %d' % self.max_num_comments)
         print('filters: %s' % str(self.filter_list))

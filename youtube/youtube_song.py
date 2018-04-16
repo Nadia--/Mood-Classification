@@ -32,20 +32,21 @@ def query(base, parameters):
 
 
 class YouTubeSong:
-    def __init__(self, artist, title):
+    def __init__(self, artist=None, title=None, video_id=None):
         self.artist = artist
         self.title = title
 
         self.error = None
         self.youtube_title = None
-        self.video_id = None
+        self.video_id = video_id
         self.comments = []
 
     def print_header(self, idx):
         print('%4d %s - %s' % (idx, self.artist, self.title))
 
     def obtain_comments(self, min_num_comments, max_num_comments, filter_list):
-        self.fetch_video_id()
+        if self.video_id is None:
+            self.fetch_video_id()
         if self.error is None:
             self.fetch_youtube_comments(min_num_comments, max_num_comments, filter_list)
 
@@ -110,9 +111,7 @@ class YouTubeSong:
             next_page_token = query_comments['nextPageToken']
 
     def __str__(self):
-        """
-        string representation of self
-        """
+        """ string representation of self """
 
         rep_str = '%s by %s\n\nvideo id: %s\nresults: %d' % (
             self.title, self.artist, self.video_id, len(self.comments))

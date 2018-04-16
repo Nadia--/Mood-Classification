@@ -7,6 +7,8 @@ from unittest import TestCase
 
 BASEDIR = '../../../../Thesis/data_sample/W/D/I'
 
+# TODO: update this test; it is failing because the YouTube videos have been perturbed
+
 class TestSavingLoading(TestCase):
     def test_save_and_load(self):
         MIN_NUM_COMMENTS = 10
@@ -15,7 +17,7 @@ class TestSavingLoading(TestCase):
         filter_list = [fltr.english_filter]
 
         aggr = SongAggregateScraper()
-        aggr.scrape(BASEDIR, MIN_NUM_COMMENTS, MAX_NUM_COMMENTS, filter_list, limit=limit)
+        aggr.scrape_from_echonest(BASEDIR, MIN_NUM_COMMENTS, MAX_NUM_COMMENTS, filter_list, limit=limit)
         good_songs = aggr.get_passing_songs()
         self.assertTrue(aggr.max_num_comments == MAX_NUM_COMMENTS, "aggregator metadata")
         self.assertTrue(aggr.aggregate[3] == 2, "aggregate statistics")

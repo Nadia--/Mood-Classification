@@ -1,10 +1,10 @@
 # Project Libraries
 import filter as fltr
-import hdf5_helper as hh
 from song_aggregate import SongAggregateScraper
-from youtube_song import YouTubeSong
 
 # General Libraries
+
+""" Scrapes comments from a subset of TheEchoNest song dataset """
 
 BASEDIR = '../../../../Thesis/data_sample/W/D/I'
 MIN_NUM_COMMENTS = 10
@@ -13,7 +13,7 @@ limit = 10
 filter_list = [fltr.english_filter]
 
 aggr = SongAggregateScraper()
-aggr.scrape(BASEDIR, MIN_NUM_COMMENTS, MAX_NUM_COMMENTS, filter_list, limit=limit)
+aggr.scrape_from_echonest(BASEDIR, MIN_NUM_COMMENTS, MAX_NUM_COMMENTS, filter_list, limit=limit)
 aggr.print_summary()
 aggr.save_to_file('WDI_L10_MIN10_MAX80_english')
 good_songs = aggr.get_passing_songs()
