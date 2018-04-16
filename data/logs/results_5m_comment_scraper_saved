@@ -1,0 +1,219 @@
+Obtaining 100 Random Video Ids
+Scraping 100 youtube songs
+   0 None - None
+     FetchingError.ERROR_NO_TOKEN
+   1 None - None
+     FetchingError.ERROR_NO_COMMENTS
+   2 None - None
+     FetchingError.ERROR_NO_TOKEN
+   3 None - None
+     FetchingError.ERROR_NO_TOKEN
+   4 None - None
+     FetchingError.ERROR_NO_COMMENTS
+   5 None - None
+     FetchingError.ERROR_NO_TOKEN
+   6 None - None
+     good
+   7 None - None
+     FetchingError.ERROR_NO_TOKEN
+   8 None - None
+     FetchingError.ERROR_NO_TOKEN
+   9 None - None
+     FetchingError.ERROR_NO_TOKEN
+  10 None - None
+     FetchingError.ERROR_NO_TOKEN
+  11 None - None
+     FetchingError.ERROR_NO_TOKEN
+  12 None - None
+     EXCEPTION occurred with this piece, ignoring
+  13 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  14 None - None
+     FetchingError.ERROR_NO_TOKEN
+  15 None - None
+     good
+  16 None - None
+     FetchingError.ERROR_NO_TOKEN
+  17 None - None
+     FetchingError.ERROR_NO_TOKEN
+  18 None - None
+     FetchingError.ERROR_NO_TOKEN
+  19 None - None
+     good
+  20 None - None
+     good
+  21 None - None
+     FetchingError.ERROR_NO_TOKEN
+  22 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  23 None - None
+     FetchingError.ERROR_NO_TOKEN
+  24 None - None
+     FetchingError.ERROR_NO_TOKEN
+  25 None - None
+     FetchingError.ERROR_NO_TOKEN
+  26 None - None
+     FetchingError.ERROR_NO_TOKEN
+  27 None - None
+     FetchingError.ERROR_NO_TOKEN
+  28 None - None
+     FetchingError.ERROR_NO_TOKEN
+  29 None - None
+     FetchingError.ERROR_NO_TOKEN
+  30 None - None
+     FetchingError.ERROR_NO_TOKEN
+  31 None - None
+     FetchingError.ERROR_NO_TOKEN
+  32 None - None
+     good
+  33 None - None
+     FetchingError.ERROR_NO_TOKEN
+  34 None - None
+     FetchingError.ERROR_NO_TOKEN
+  35 None - None
+     FetchingError.ERROR_NO_TOKEN
+  36 None - None
+     FetchingError.ERROR_NO_TOKEN
+  37 None - None
+     good
+  38 None - None
+     FetchingError.ERROR_NO_TOKEN
+  39 None - None
+     FetchingError.ERROR_NO_TOKEN
+  40 None - None
+     FetchingError.ERROR_NO_TOKEN
+  41 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  42 None - None
+     FetchingError.ERROR_NO_TOKEN
+  43 None - None
+     FetchingError.ERROR_NO_TOKEN
+  44 None - None
+     FetchingError.ERROR_NO_TOKEN
+  45 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  46 None - None
+     good
+  47 None - None
+     FetchingError.ERROR_NO_TOKEN
+  48 None - None
+     FetchingError.ERROR_NO_TOKEN
+  49 None - None
+     FetchingError.ERROR_NO_TOKEN
+  50 None - None
+     FetchingError.ERROR_NO_TOKEN
+  51 None - None
+     FetchingError.ERROR_NO_TOKEN
+  52 None - None
+     EXCEPTION occurred with this piece, ignoring
+  53 None - None
+     FetchingError.ERROR_NO_TOKEN
+  54 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  55 None - None
+     FetchingError.ERROR_NO_TOKEN
+  56 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  57 None - None
+     EXCEPTION occurred with this piece, ignoring
+  58 None - None
+     FetchingError.ERROR_NO_TOKEN
+  59 None - None
+     FetchingError.ERROR_NO_TOKEN
+  60 None - None
+     FetchingError.ERROR_NO_TOKEN
+  61 None - None
+     FetchingError.ERROR_NO_TOKEN
+  62 None - None
+     FetchingError.ERROR_NO_TOKEN
+  63 None - None
+     FetchingError.ERROR_NO_TOKEN
+  64 None - None
+     FetchingError.ERROR_NO_TOKEN
+  65 None - None
+     FetchingError.ERROR_NO_TOKEN
+  66 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  67 None - None
+     good
+  68 None - None
+     FetchingError.ERROR_NO_TOKEN
+  69 None - None
+     FetchingError.ERROR_NO_TOKEN
+  70 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  71 None - None
+     FetchingError.ERROR_NO_TOKEN
+  72 None - None
+     FetchingError.ERROR_NO_TOKEN
+  73 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  74 None - None
+     good
+  75 None - None
+     FetchingError.ERROR_NO_TOKEN
+  76 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  77 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  78 None - None
+     FetchingError.ERROR_NO_TOKEN
+  79 None - None
+     FetchingError.ERROR_NO_TOKEN
+  80 None - None
+     FetchingError.ERROR_NO_TOKEN
+  81 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  82 None - None
+     FetchingError.ERROR_NO_TOKEN
+  83 None - None
+     FetchingError.ERROR_NO_TOKEN
+  84 None - None
+     FetchingError.ERROR_NO_TOKEN
+  85 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  86 None - None
+     FetchingError.ERROR_NO_TOKEN
+  87 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  88 None - None
+     FetchingError.ERROR_NO_TOKEN
+  89 None - None
+     FetchingError.ERROR_NO_TOKEN
+  90 None - None
+     FetchingError.ERROR_NO_TOKEN
+  91 None - None
+     FetchingError.ERROR_NO_TOKEN
+  92 None - None
+     EXCEPTION occurred with this piece, ignoring
+  93 None - None
+     FetchingError.ERROR_NO_TOKEN
+  94 None - None
+     good
+  95 None - None
+     good
+  96 None - None
+     EXCEPTION occurred with this piece, ignoring
+  97 None - None
+     FetchingError.ERROR_NO_TOKEN
+  98 None - None
+     FetchingError.ERROR_NO_TOKEN
+  99 None - None
+     FetchingError.ERROR_NO_TOKEN
+
+
+Summary of Results 
+
+parameters:
+num songs scraped: 100
+min comments: 40
+max comments: 80
+filters: [english-1000-word-filter]
+
+11% GOOD (11 total)
+
+16% no comments (16)
+68% not enough comments (no next page token) (68)
+ 0% no video id (0)
+ 0% no video results (0)
+ 5% unhandled exceptions (5)

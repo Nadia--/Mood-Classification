@@ -6,17 +6,31 @@ Trial 1
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[62. 11.]
- [ 4. 23.]]
-Total Accuracy: 0.85
+[[70.  3.]
+ [ 7. 20.]]
+Total Accuracy: 0.90
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[54. 19.]
- [19.  8.]]
-Total Accuracy: 0.62
+[[65.  8.]
+ [21.  6.]]
+Total Accuracy: 0.71
 
 Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[68.  5.]
+ [ 8. 19.]]
+Total Accuracy: 0.87
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[67.  6.]
+ [23.  4.]]
+Total Accuracy: 0.71
+
+Trial 3
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
@@ -26,55 +40,41 @@ Total Accuracy: 0.90
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[59. 14.]
- [18.  9.]]
-Total Accuracy: 0.68
-
-Trial 3
-
-Training Data Model Results
-Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[69.  4.]
- [ 7. 20.]]
-Total Accuracy: 0.89
-
-Testing Data Model Results
-Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[59. 14.]
- [18.  9.]]
+[[60. 13.]
+ [19.  8.]]
 Total Accuracy: 0.68
 
 Trial 4
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[62. 11.]
- [ 7. 20.]]
-Total Accuracy: 0.82
+[[58. 15.]
+ [ 1. 26.]]
+Total Accuracy: 0.84
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[50. 23.]
- [20.  7.]]
-Total Accuracy: 0.57
+[[53. 20.]
+ [16. 11.]]
+Total Accuracy: 0.64
 
 Trial 5
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[69.  4.]
- [10. 17.]]
-Total Accuracy: 0.86
+[[64.  9.]
+ [ 2. 25.]]
+Total Accuracy: 0.89
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[61. 12.]
- [19.  8.]]
-Total Accuracy: 0.69
+[[49. 24.]
+ [18.  9.]]
+Total Accuracy: 0.58
 
 Results for genre: rock
-Average Training Accuracy: 0.86
-Average Testing Accuracy: 0.65
+Average Training Accuracy: 0.88
+Average Testing Accuracy: 0.66
 
 
 Scraping 200 songs for genre: jazz
@@ -83,59 +83,31 @@ Trial 1
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[30.  4.]
- [15. 51.]]
-Total Accuracy: 0.81
+[[26.  8.]
+ [ 9. 57.]]
+Total Accuracy: 0.83
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
 [[19. 14.]
- [34. 33.]]
-Total Accuracy: 0.52
+ [29. 38.]]
+Total Accuracy: 0.57
 
 Trial 2
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[29.  5.]
- [19. 47.]]
-Total Accuracy: 0.76
+[[30.  4.]
+ [12. 54.]]
+Total Accuracy: 0.84
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[19. 14.]
- [31. 36.]]
-Total Accuracy: 0.55
+[[ 8. 25.]
+ [19. 48.]]
+Total Accuracy: 0.56
 
 Trial 3
-
-Training Data Model Results
-Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[32.  2.]
- [13. 53.]]
-Total Accuracy: 0.85
-
-Testing Data Model Results
-Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[16. 17.]
- [37. 30.]]
-Total Accuracy: 0.46
-
-Trial 4
-
-Training Data Model Results
-Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[30.  4.]
- [ 7. 59.]]
-Total Accuracy: 0.89
-
-Testing Data Model Results
-Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[11. 22.]
- [15. 52.]]
-Total Accuracy: 0.63
-
-Trial 5
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
@@ -145,10 +117,38 @@ Total Accuracy: 0.86
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[14. 19.]
- [27. 40.]]
-Total Accuracy: 0.54
+[[18. 15.]
+ [22. 45.]]
+Total Accuracy: 0.63
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28.  6.]
+ [11. 55.]]
+Total Accuracy: 0.83
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[10. 23.]
+ [20. 47.]]
+Total Accuracy: 0.57
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28.  6.]
+ [10. 56.]]
+Total Accuracy: 0.84
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[12. 21.]
+ [12. 55.]]
+Total Accuracy: 0.67
 
 Results for genre: jazz
-Average Training Accuracy: 0.83
-Average Testing Accuracy: 0.54
+Average Training Accuracy: 0.84
+Average Testing Accuracy: 0.60
