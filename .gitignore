@@ -1,6 +1,8 @@
-# Directory to Exclude
+# Directories and Files to Exclude
 venv/
 .idea/
+data/youtube_data/5m_list/
+data/youtube_data/songs/
 
 # Types of Files to Exclude
 *__pycache__*
