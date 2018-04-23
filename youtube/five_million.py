@@ -81,6 +81,7 @@ def random_songs(num_songs, seed=0):
                     video_ids[i] = line[:-1]
                     break
                 counter += 1
+        fp.close()
 
     return video_ids
 

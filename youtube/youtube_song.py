@@ -104,7 +104,7 @@ class YouTubeSong:
             if len(self.comments) == max_num_comments:
                 # Done
                 break
-            if 'next_page_token' not in query_comments:
+            if 'nextPageToken' not in query_comments:
                 if len(self.comments) < min_num_comments:
                     self.set_error(FetchingError.ERROR_NO_TOKEN)
                 break

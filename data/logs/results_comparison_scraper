@@ -1,0 +1,437 @@
+Obtaining 100 Random Video Ids
+Scraping 100 youtube songs
+   0 None - None
+     FetchingError.ERROR_NO_TOKEN
+   1 None - None
+     FetchingError.ERROR_NO_COMMENTS
+   2 None - None
+     FetchingError.ERROR_NO_TOKEN
+   3 None - None
+     FetchingError.ERROR_NO_TOKEN
+   4 None - None
+     FetchingError.ERROR_NO_COMMENTS
+   5 None - None
+     good
+   6 None - None
+     good
+   7 None - None
+     FetchingError.ERROR_NO_TOKEN
+   8 None - None
+     FetchingError.ERROR_NO_TOKEN
+   9 None - None
+     FetchingError.ERROR_NO_TOKEN
+  10 None - None
+     FetchingError.ERROR_NO_TOKEN
+  11 None - None
+     good
+  12 None - None
+     EXCEPTION occurred with this piece, ignoring
+  13 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  14 None - None
+     FetchingError.ERROR_NO_TOKEN
+  15 None - None
+     good
+  16 None - None
+     FetchingError.ERROR_NO_TOKEN
+  17 None - None
+     FetchingError.ERROR_NO_TOKEN
+  18 None - None
+     FetchingError.ERROR_NO_TOKEN
+  19 None - None
+     good
+  20 None - None
+     EXCEPTION occurred with this piece, ignoring
+  21 None - None
+     FetchingError.ERROR_NO_TOKEN
+  22 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  23 None - None
+     good
+  24 None - None
+     FetchingError.ERROR_NO_TOKEN
+  25 None - None
+     good
+  26 None - None
+     FetchingError.ERROR_NO_TOKEN
+  27 None - None
+     EXCEPTION occurred with this piece, ignoring
+  28 None - None
+     FetchingError.ERROR_NO_TOKEN
+  29 None - None
+     FetchingError.ERROR_NO_TOKEN
+  30 None - None
+     EXCEPTION occurred with this piece, ignoring
+  31 None - None
+     FetchingError.ERROR_NO_TOKEN
+  32 None - None
+     good
+  33 None - None
+     FetchingError.ERROR_NO_TOKEN
+  34 None - None
+     FetchingError.ERROR_NO_TOKEN
+  35 None - None
+     FetchingError.ERROR_NO_TOKEN
+  36 None - None
+     FetchingError.ERROR_NO_TOKEN
+  37 None - None
+     good
+  38 None - None
+     good
+  39 None - None
+     FetchingError.ERROR_NO_TOKEN
+  40 None - None
+     FetchingError.ERROR_NO_TOKEN
+  41 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  42 None - None
+     FetchingError.ERROR_NO_TOKEN
+  43 None - None
+     FetchingError.ERROR_NO_TOKEN
+  44 None - None
+     good
+  45 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  46 None - None
+     good
+  47 None - None
+     FetchingError.ERROR_NO_TOKEN
+  48 None - None
+     good
+  49 None - None
+     good
+  50 None - None
+     FetchingError.ERROR_NO_TOKEN
+  51 None - None
+     FetchingError.ERROR_NO_TOKEN
+  52 None - None
+     EXCEPTION occurred with this piece, ignoring
+  53 None - None
+     good
+  54 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  55 None - None
+     FetchingError.ERROR_NO_TOKEN
+  56 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  57 None - None
+     EXCEPTION occurred with this piece, ignoring
+  58 None - None
+     FetchingError.ERROR_NO_TOKEN
+  59 None - None
+     FetchingError.ERROR_NO_TOKEN
+  60 None - None
+     good
+  61 None - None
+     FetchingError.ERROR_NO_TOKEN
+  62 None - None
+     FetchingError.ERROR_NO_TOKEN
+  63 None - None
+     FetchingError.ERROR_NO_TOKEN
+  64 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  65 None - None
+     good
+  66 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  67 None - None
+     good
+  68 None - None
+     good
+  69 None - None
+     FetchingError.ERROR_NO_TOKEN
+  70 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  71 None - None
+     FetchingError.ERROR_NO_TOKEN
+  72 None - None
+     FetchingError.ERROR_NO_TOKEN
+  73 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  74 None - None
+     good
+  75 None - None
+     FetchingError.ERROR_NO_TOKEN
+  76 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  77 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  78 None - None
+     FetchingError.ERROR_NO_TOKEN
+  79 None - None
+     good
+  80 None - None
+     good
+  81 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  82 None - None
+     good
+  83 None - None
+     FetchingError.ERROR_NO_TOKEN
+  84 None - None
+     FetchingError.ERROR_NO_TOKEN
+  85 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  86 None - None
+     FetchingError.ERROR_NO_TOKEN
+  87 None - None
+     FetchingError.ERROR_NO_COMMENTS
+  88 None - None
+     EXCEPTION occurred with this piece, ignoring
+  89 None - None
+     FetchingError.ERROR_NO_TOKEN
+  90 None - None
+     FetchingError.ERROR_NO_TOKEN
+  91 None - None
+     good
+  92 None - None
+     EXCEPTION occurred with this piece, ignoring
+  93 None - None
+     good
+  94 None - None
+     good
+  95 None - None
+     good
+  96 None - None
+     EXCEPTION occurred with this piece, ignoring
+  97 None - None
+     FetchingError.ERROR_NO_TOKEN
+  98 None - None
+     FetchingError.ERROR_NO_TOKEN
+  99 None - None
+     FetchingError.ERROR_NO_TOKEN
+Scraping 100 youtube songs
+   0 Annihilator - Speed
+     FetchingError.ERROR_NO_TOKEN
+   1 Rikk Agnew - 10
+     FetchingError.ERROR_NO_TOKEN
+   2 Lou Reed - Street Hassle
+     good
+   3 Allan Sherman - Strange Things In My Soup (Album Version)
+     FetchingError.ERROR_NO_COMMENTS
+   4 White Rose Transmission - Glittering Green
+     FetchingError.ERROR_NO_TOKEN
+   5 Alberta Cross - ATX
+     FetchingError.ERROR_NO_TOKEN
+   6 Pop Levi - (A Style Called) Crying Chic
+     FetchingError.ERROR_NO_TOKEN
+   7 T.I. - The Greatest [Featuring Mannie Fresh] (Amended Album Version)
+     good
+   8 Mike Mikhjian - Endless Existence
+     FetchingError.ERROR_NO_TOKEN
+   9 Kiprich - Ring
+     FetchingError.ERROR_NO_TOKEN
+  10 Ken Laszlo - Hey Hey Guy
+     good
+  11 The Q4 - One of These Days
+     FetchingError.ERROR_NO_TOKEN
+  12 THE TOM ROBINSON BAND - Long Hot Summer
+     FetchingError.ERROR_NO_TOKEN
+  13 Mauro Bisi - Maddalena
+     FetchingError.ERROR_NO_COMMENTS
+  14 Butthole Surfers - Alcohol (Explicit)
+     FetchingError.ERROR_NO_TOKEN
+  15 Darc Mind - U Da One
+     FetchingError.ERROR_NO_TOKEN
+  16 Samuele Bersani - Occhiali Rotti
+     FetchingError.ERROR_NO_TOKEN
+  17 Francesco Guccini - Bisanzio (1996 Digital Remaster)
+     FetchingError.ERROR_NO_TOKEN
+  18 Eric Idle - Muff Diving (Comedy)
+     FetchingError.ERROR_NO_VIDEOID
+  19 Carman - Radically Saved
+     FetchingError.ERROR_NO_TOKEN
+  20 Tommy Sparks - Brand New Love
+     FetchingError.ERROR_NO_TOKEN
+  21 Amps For Christ - Healing Feeling
+     FetchingError.ERROR_NO_COMMENTS
+  22 Oh Susanna - Billy IV
+     FetchingError.ERROR_NO_COMMENTS
+  23 Street Dogs - When It Ends
+     FetchingError.ERROR_NO_TOKEN
+  24 Seven Mary Three - Dead Days in the Kitchen
+     FetchingError.ERROR_NO_TOKEN
+  25 The Hurt Process - The Night Before the Morning After
+     FetchingError.ERROR_NO_TOKEN
+  26 JairRohm Parker Wells - Improbable Cause_ Likely Effect
+     FetchingError.ERROR_NO_COMMENTS
+  27 Paul Glazby - Love - Hate
+     FetchingError.ERROR_NO_TOKEN
+  28 DecembeRadio - Drifter
+     good
+  29 Os Paralamas Do Sucesso - O Beco (Live)
+     FetchingError.ERROR_NO_TOKEN
+  30 The Forty-Fives - Superpill
+     FetchingError.ERROR_NO_TOKEN
+  31 Kristine W - Love is the Look (Love to Infinity If Hooks Could Kill Club)
+     FetchingError.ERROR_NO_COMMENTS
+  32 Cooler Kids - Remember That Song
+     FetchingError.ERROR_NO_TOKEN
+  33 Fidel Nadal - Te Amo (Dub)
+     FetchingError.ERROR_NO_TOKEN
+  34 Tarkan - Gün Gibi
+     FetchingError.ERROR_NO_TOKEN
+  35 Jesse Malin - In The Modern World
+     FetchingError.ERROR_NO_TOKEN
+  36 Sly - Real Talk
+     FetchingError.ERROR_NO_TOKEN
+  37 Jacques Brel - Quand on a que l'amour
+     EXCEPTION occurred with this piece, ignoring
+  38 Zelonka & Marga Sol - Into my Heart
+     FetchingError.ERROR_NO_TOKEN
+  39 Midge Ure - Edo
+     FetchingError.ERROR_NO_COMMENTS
+  40 The Moog Cookbook - Sweet Home Alabama (Album Version)
+     FetchingError.ERROR_NO_TOKEN
+  41 Dario Marianelli - Corner-Shop
+     FetchingError.ERROR_NO_COMMENTS
+  42 V V Brown - Crying Blood
+     good
+  43 Maya Azucena - Make It Happen (EG Dub Mix)
+     FetchingError.ERROR_NO_COMMENTS
+  44 Mop - 10 avril
+     FetchingError.ERROR_NO_COMMENTS
+  45 Black Sabbath - E5150
+     FetchingError.ERROR_NO_TOKEN
+  46 Kim Weston - Springtime In My Heart
+     FetchingError.ERROR_NO_COMMENTS
+  47 Sarah Brightman / John Gielgud - Gus: The Theatre Cat
+     FetchingError.ERROR_NO_TOKEN
+  48 Beasts Of Bourbon - The Low Road
+     FetchingError.ERROR_NO_TOKEN
+  49 LTNO & The Dead Sexy Inc. - Born To Lose
+     FetchingError.ERROR_NO_COMMENTS
+  50 The Big Bopper - Big Bopper's Wedding
+     FetchingError.ERROR_NO_TOKEN
+  51 Kool & The Gang - Unite
+     FetchingError.ERROR_NO_TOKEN
+  52 Phillip Tabane - Tlabalala
+     FetchingError.ERROR_NO_TOKEN
+  53 Bryan White - The First Noel
+     FetchingError.ERROR_NO_COMMENTS
+  54 Senser - Charming Demons (Edit)
+     FetchingError.ERROR_NO_COMMENTS
+  55 Fearless Iranians From Hell - Chant
+     FetchingError.ERROR_NO_TOKEN
+  56 Amanda - Come together
+     FetchingError.ERROR_NO_COMMENTS
+  57 Steve Green - O Come O Come Emmanuel (Green) (S. Green)
+     FetchingError.ERROR_NO_TOKEN
+  58 Funk D'Void - Diabla (Kevin Saunderson Mix)
+     FetchingError.ERROR_NO_TOKEN
+  59 Lukie D - Whos That Girl
+     FetchingError.ERROR_NO_COMMENTS
+  60 Belbury Poly - The Hidden Door
+     FetchingError.ERROR_NO_COMMENTS
+  61 Sabrina Setlur - Du liebst mich nicht
+     good
+  62 Shaye - Fin de partie
+     FetchingError.ERROR_NO_COMMENTS
+  63 Jorge Ben - Vou De Samba Com Você
+     FetchingError.ERROR_NO_TOKEN
+  64 Collision - Nobody Said It Was Easy
+     FetchingError.ERROR_NO_TOKEN
+  65 Pieces Of A Dream - Fo-Fi-Fo
+     FetchingError.ERROR_NO_TOKEN
+  66 Driver Drive Faster - The Lookout
+     FetchingError.ERROR_NO_TOKEN
+  67 Latimore - (They Call It) Stormy Monday
+     FetchingError.ERROR_NO_TOKEN
+  68 Jami Smith - Home
+     FetchingError.ERROR_NO_COMMENTS
+  69 Corbin Bleu - Close
+     FetchingError.ERROR_NO_TOKEN
+  70 Hanno Muller-Brachmann - Die Schopfung (The Creation)_ Hob.XXI:2: Part I_ No.8: Nun beut dir Flur das frische Grun (With verd
+     FetchingError.ERROR_NO_RESULTS
+  71 David Lyndon Huff - This Place (Rhythmic Dreams Album Version)
+     FetchingError.ERROR_NO_COMMENTS
+  72 Florian Silbereisen - Du hast bei mir a Busserl guat
+     FetchingError.ERROR_NO_TOKEN
+  73 Kettcar - Anders als gedacht
+     FetchingError.ERROR_NO_TOKEN
+  74 Gillan - Smoke On The Water 
+     good
+  75 Rocio Jurado - Esta Noche Gano Yo
+     FetchingError.ERROR_NO_TOKEN
+  76 The String Cheese Incident - How Mountain Girls Can Love
+     FetchingError.ERROR_NO_COMMENTS
+  77 Truth Enola - I Need To Know (Clean)
+     FetchingError.ERROR_NO_TOKEN
+  78 Venetian Snares - Suffocate
+     FetchingError.ERROR_NO_TOKEN
+  79 J. Holiday - Ghetto
+     FetchingError.ERROR_NO_TOKEN
+  80 Annie - I Will Get On
+     FetchingError.ERROR_NO_TOKEN
+  81 Walter Trout - Goin' Back Home (Album Version)
+     FetchingError.ERROR_NO_COMMENTS
+  82 The Black Keys - Set You Free (Album Version)
+     FetchingError.ERROR_NO_TOKEN
+  83 Gram Parsons - What Difference Do You See Between Pure Country And Country Rock?
+     FetchingError.ERROR_NO_COMMENTS
+  84 Pickin' On Series - I Shot The Sheriff
+     FetchingError.ERROR_NO_TOKEN
+  85 McFly - Only The Strong Survive
+     FetchingError.ERROR_NO_TOKEN
+  86 Alicia Keys - Teenage Love Affair
+     good
+  87 Lt. Stitchie - Sentence Fi Dawn
+     FetchingError.ERROR_NO_TOKEN
+  88 City High - Caramel
+     good
+  89 Black Sheep - WhoDat? (Clean)
+     good
+  90 Juan Valentin - Por Amor
+     FetchingError.ERROR_NO_TOKEN
+  91 Ensiferum - Deathbringer From The Sky
+     good
+  92 Tricky - Strugglin'
+     FetchingError.ERROR_NO_TOKEN
+  93 Frankenbok - Celibacy (live) (Album Version)
+     FetchingError.ERROR_NO_TOKEN
+  94 Ninth Circle - Teardrops Shatter
+     FetchingError.ERROR_NO_COMMENTS
+  95 We Are Lions - Suidie Note c.1982
+     FetchingError.ERROR_NO_TOKEN
+  96 Los Pumas Del Norte - El Trenecito
+     FetchingError.ERROR_NO_COMMENTS
+  97 Flowchart - Elephant Boy's First Day of School
+     FetchingError.ERROR_NO_COMMENTS
+  98 Chillout - Silver
+     good
+  99 B12 - Rings Of Saturn
+     FetchingError.ERROR_NO_TOKEN
+
+
+Summary of Results 
+
+parameters:
+num songs scraped: 100
+min comments: 40
+max comments: 80
+filters: [english-1000-word-filter]
+
+27% GOOD (27 total)
+
+17% no comments (17)
+47% not enough comments (no next page token) (47)
+ 0% no video id (0)
+ 0% no video results (0)
+ 9% unhandled exceptions (9)
+
+
+Summary of Results 
+
+parameters:
+num songs scraped: 100
+min comments: 40
+max comments: 80
+filters: [english-1000-word-filter]
+
+12% GOOD (12 total)
+
+26% no comments (26)
+59% not enough comments (no next page token) (59)
+ 1% no video id (1)
+ 1% no video results (1)
+ 1% unhandled exceptions (1)
