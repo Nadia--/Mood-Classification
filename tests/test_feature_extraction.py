@@ -15,29 +15,17 @@ class TestFeatureExtraction(TestCase):
 
     def test_spectral_flux(self):
         audio, sr = get_audio('yzTuBuRdAyA')
-        spectral_flux = get_spectral_flux(audio, sr)
-        self.assertEqual(len(spectral_flux), 513, "spectral flux shape")
+        spectral_flux = get_spectral_flux(audio, sr, n_fft=1024, hop_length=256)
+        print(spectral_flux.shape)
+        self.assertEqual((1, 20173), spectral_flux.shape, "spectral flux shape")
 
     def test_feature_extraction(self):
-        video_ids = ['lIYCHbOTab4', 'yzTuBuRdAyA']
+        audio, sr = get_audio('lIYCHbOTab4')
 
-        mfccs, spectral_centroids, spectral_fluxes = \
-            extract_features(video_ids, mfcc=True, spectral_centroid=False, spectral_flux=False)
-        self.assertIsNone(spectral_centroids, "feature is none")
-        self.assertIsNone(spectral_fluxes, "feature is none")
-        self.assertIsNotNone(mfccs, "feature is not none")
+        result = extract_features(audio, sr)
+        self.assertEqual((8464, 22), result.shape, "frame features extraction")
 
-        mfccs, spectral_centroids, spectral_fluxes = extract_features(video_ids)
-
-        song = 0
-        self.assertEqual(mfccs[song].shape, (20, 8464), "mfccs shape")
-        self.assertEqual(spectral_centroids[song].shape, (1, 8464), "spectral centroids shape")
-        self.assertEqual(spectral_fluxes[song].shape, (513,), "spectral fluxes shape")
-
-        song = 1
-        self.assertEqual(mfccs[song].shape, (20, 10086), "mfccs shape")
-        self.assertEqual(spectral_centroids[song].shape, (1, 10086), "spectral centroids shape")
-        self.assertEqual(spectral_fluxes[song].shape, (513,), "spectral fluxes shape")
-
+        result2 = extract_features(audio, sr, mfcc=False)
+        self.assertEqual((8464, 2), result2.shape, "frame features extraction")
 
 

@@ -13,10 +13,9 @@ Currently supporting: MFCCs, Spectral Centroids
 
 BASE_DIRECTORY = "./../data/youtube_data/songs/"
 
-DFT_SIZE = 1024
-HOP_SIZE = 256
+DFT_SIZE = 2048
+HOP_SIZE = 512
 ZERO_PAD = 0
-WINDOW = np.hanning(DFT_SIZE)
 
 
 def get_audio(video_id):
@@ -83,55 +82,42 @@ def stft(input_array, dft_size, hop_size, zero_pad, window):
     else:
         return None
 
-def get_spectral_flux(audio, sr):
+
+def get_spectral_flux(y, sr, n_fft, hop_length):
     """ Returns a measure of variance in frequencies over time"""
-    #TODO: should incorporate sampling rate and use the same sampling rate for all
+    # TODO: should incorporate sampling rate and use the same sampling rate for all
 
-    stfts = abs(stft(audio, DFT_SIZE, HOP_SIZE, ZERO_PAD, WINDOW))
-
+    stfts = abs(stft(y, n_fft, hop_length, ZERO_PAD, np.hanning(n_fft)))
     time_points = len(stfts)
-    frequencies = len(stfts[0])
 
-    spect_flux = [0]*frequencies
+    spect_flux = np.array([np.average((stfts[i] - stfts[i - 1]) ** 2) for i in range(time_points)])
 
-    for i in range(time_points-1):
-        diffs_squared = (stfts[i] - stfts[i+1])**2
-        spect_flux += diffs_squared / (time_points-1)
-
-    return spect_flux
+    package = np.zeros((1, len(spect_flux)))
+    package[0] = spect_flux
+    return package
 
 
-def extract_features(video_ids, mfcc=True, spectral_centroid=True, spectral_flux=True, num_mfccs=20):
+def extract_features(audio, sr, mfcc=True, spectral_centroid=True, spectral_flux=True, num_mfccs=20):
     """
-    Extracts audio features from audio tracks corresponding to YouTube video ids
+    Extracts audio features per frame of audio track
 
-    :param video_ids: the video ids of the audio tracks we're interested in
+    :param audio: the audio time series
+    :param sr: the sampling rate of the audio
     :param mfcc: whether to extract mfcc feature
     :param spectral_centroid: whether to extract spectral centroid feature
-    :return: extracted features
+    :param spectral_flux: whether to extract spectral flux feature
     """
-
-    mfccs = None
-    spectral_centroids = None
-    spectral_fluxes = None
+    feats = [None]*3
 
     if mfcc:
-        mfccs = [0] * len(video_ids)
+        feats[0] = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=num_mfccs, n_fft=DFT_SIZE, hop_length=HOP_SIZE)
     if spectral_centroid:
-        spectral_centroids = [0] * len(video_ids)
+        feats[1] = librosa.feature.spectral_centroid(y=audio, sr=sr, n_fft=DFT_SIZE, hop_length=HOP_SIZE)
     if spectral_flux:
-        spectral_fluxes = [0] * len(video_ids)
+        feats[2] = get_spectral_flux(y=audio, sr=sr, n_fft=DFT_SIZE, hop_length=HOP_SIZE)
 
-    for idx, video_id in enumerate(video_ids):
-        audio, sr = get_audio(video_id)
-        print(sr)
+    feats = [feat for feat in feats if feat is not None]
 
-        if mfcc:
-            mfccs[idx] = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=num_mfccs)
-        if spectral_centroid:
-            spectral_centroids[idx] = librosa.feature.spectral_centroid(y=audio, sr=sr)
-        if spectral_flux:
-            spectral_fluxes[idx] = get_spectral_flux(audio, sr)
-
-    return mfccs, spectral_centroids, spectral_fluxes
+    features = np.concatenate(tuple(feats))
+    return np.swapaxes(features, 0, 1)
 
