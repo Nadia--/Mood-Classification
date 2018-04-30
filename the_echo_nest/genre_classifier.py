@@ -55,7 +55,7 @@ def learn_classifier(basedir, genre, split=0.5, num_trials=1, num_components=5, 
     :param limit: the maximum number of songs within the directory that should be classified
     """
     positive_examples, negative_examples = scrape_songs_by_genre(basedir, genre, limit)
-    positive_model, negative_model = \
+    positive_model, negative_model, accuracy = \
         ml.learn_classifier(positive_examples, negative_examples, split, num_trials, num_components, covariance_type)
 
     print("\nResults for genre: %s" % genre)

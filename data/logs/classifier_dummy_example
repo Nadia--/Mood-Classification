@@ -1,0 +1,81 @@
+Obtained Features from File
+
+Running classifier for: 
+1 components, 
+spherical covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[ 9.  5.]
+ [17. 19.]]
+Total Accuracy: 0.56
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[ 9.  5.]
+ [17. 19.]]
+Total Accuracy: 0.56
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[10.  4.]
+ [17. 19.]]
+Total Accuracy: 0.58
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[ 9.  5.]
+ [17. 19.]]
+Total Accuracy: 0.56
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[ 9.  5.]
+ [20. 16.]]
+Total Accuracy: 0.50
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[10.  4.]
+ [18. 18.]]
+Total Accuracy: 0.56
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[12.  2.]
+ [22. 14.]]
+Total Accuracy: 0.52
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[ 9.  5.]
+ [22. 14.]]
+Total Accuracy: 0.46
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[10.  4.]
+ [16. 20.]]
+Total Accuracy: 0.60
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[ 9.  5.]
+ [16. 20.]]
+Total Accuracy: 0.58
+Average Training Accuracy: 0.55
+Average Testing Accuracy: 0.54
+
+Tuning parameter accuracies :
+[[0.58]]
+Wait a Minute! - Willow Smith.mp3 is not romantic!

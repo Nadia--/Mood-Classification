@@ -4,7 +4,6 @@
 import glob
 import librosa
 import numpy as np
-import math
 
 """
 API for extracting various features from audio tracks
@@ -16,14 +15,19 @@ BASE_DIRECTORY = "./../data/youtube_data/songs/"
 DFT_SIZE = 2048
 HOP_SIZE = 512
 
+def load_audio_file(file_name):
+    """ Loads local audio track based on file name """
+    audio, sr = librosa.load(file_name, sr=48000)  # Most files have this sampling rate natively
+    return audio, sr
 
 def get_audio(video_id):
-    """ Returns local audio file name based on its YouTube video id"""
+    """ Loads local audio track name based on its YouTube video id"""
 
     fileglob = BASE_DIRECTORY + ("%s.*.mp3" % video_id)
     audio_file_name = glob.glob(fileglob)[0]
     print(audio_file_name)
-    return librosa.load(audio_file_name)
+    return load_audio_file(audio_file_name)
+
 
 def get_spectral_flux(y, sr, n_fft, hop_length):
     """ Returns a measure of variance in frequencies over time"""
@@ -61,4 +65,4 @@ def extract_features(audio, sr, mfcc=True, spectral_centroid=True, spectral_flux
     feats = [feat for feat in feats if feat is not None]
 
     features = np.concatenate(tuple(feats))
-    return np.swapaxes(features, 0, 1)
+    return features

@@ -5,7 +5,12 @@ import random
 import numpy as np
 from sklearn import mixture
 
+"""
+Generic guassian mixture model binary classifier API
+"""
+
 def shuffle_examples(examples):
+    """ Returns a shuffled array of examples """
     perms = [i for i in range(len(examples))]
     random.shuffle(perms)
     examples_shuffled = [examples[i] for i in perms]
@@ -107,11 +112,11 @@ def run_trial(positive_examples, negative_examples, split, num_components, covar
 
     return positive_model, negative_model, training_accuracy, testing_accuracy
 
-def learn_classifier(positive_examples, negative_examples, split=0.5, num_trials=1, num_components=5, covariance_type='full'):
+def learn_classifier(positive_examples, negative_examples, split=0.5, num_trials=1, num_components=5, covariance_type='diag'):
     """
     Divides up to limit songs in basedir by belonging to a genre or not
     Runs up to num_trials of creating and evaluating a classifier for those songs and prints average accuracy
-    Returns the classifier with the best accuracy on test data
+    Returns the classifier with the best accuracy on test data and its accuracy
 
     :param positive_examples: examples that have the label
     :param negative_examples examples that don't have the label
@@ -144,4 +149,4 @@ def learn_classifier(positive_examples, negative_examples, split=0.5, num_trials
     print("Average Training Accuracy: %.2f" % avg_training_accuracy)
     print("Average Testing Accuracy: %.2f" % avg_testing_accuracy)
 
-    return best_positive_model, best_negative_model
+    return best_positive_model, best_negative_model, best_accuracy

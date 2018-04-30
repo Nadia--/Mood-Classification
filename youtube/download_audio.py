@@ -14,6 +14,7 @@ YOUTUBE_VIDEO_URL = 'https://www.youtube.com/watch?v='
 ydl_opts = {
     'format': 'bestaudio/best',
     'outtmpl': 'D:/Dropbox/AAA/Senior/242/final project/Final Project/data/youtube_data/songs/%(id)s.%(title)s.%(ext)s)',
+    'download_archive': 'D:/Dropbox/AAA/Senior/242/final project/Final Project/data/youtube_data/songs/dl_archive',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
         'preferredcodec': 'mp3',
@@ -22,13 +23,17 @@ ydl_opts = {
 }
 
 
-def download_audio(video_ids):
+def download_audio(video_id):
     """ Downloads audio files from a list of YouTube video ids """
-    print(video_ids)
-    urls = [YOUTUBE_VIDEO_URL + id for id in video_ids]
-    print(urls)
+    print(video_id)
+    url = YOUTUBE_VIDEO_URL + video_id
+    print(url)
 
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download(urls)
+        try:
+            ydl.download([url])
+            return True
+        except:
+            return False
 
-#download_audio(['yzTuBuRdAyA', 'lIYCHbOTab4'])
+
