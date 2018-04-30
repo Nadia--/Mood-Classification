@@ -8,74 +8,79 @@ Trial 1
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[ 9.  5.]
- [17. 19.]]
-Total Accuracy: 0.56
+[[10.  4.]
+ [22. 14.]]
+Total Accuracy: 0.48
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[ 9.  5.]
- [17. 19.]]
-Total Accuracy: 0.56
+[[12.  2.]
+ [25. 11.]]
+Total Accuracy: 0.46
 
 Trial 2
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[10.  4.]
- [17. 19.]]
-Total Accuracy: 0.58
+[[11.  3.]
+ [29.  7.]]
+Total Accuracy: 0.36
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[ 9.  5.]
- [17. 19.]]
-Total Accuracy: 0.56
+[[14.  0.]
+ [28.  8.]]
+Total Accuracy: 0.44
 
 Trial 3
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[ 9.  5.]
- [20. 16.]]
-Total Accuracy: 0.50
+[[12.  2.]
+ [28.  8.]]
+Total Accuracy: 0.40
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[10.  4.]
- [18. 18.]]
-Total Accuracy: 0.56
+[[12.  2.]
+ [26. 10.]]
+Total Accuracy: 0.44
 
 Trial 4
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[12.  2.]
- [22. 14.]]
+[[11.  3.]
+ [21. 15.]]
 Total Accuracy: 0.52
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[ 9.  5.]
- [22. 14.]]
+[[10.  4.]
+ [23. 13.]]
 Total Accuracy: 0.46
 
 Trial 5
 
 Training Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[10.  4.]
+[[ 8.  6.]
  [16. 20.]]
-Total Accuracy: 0.60
+Total Accuracy: 0.56
 
 Testing Data Model Results
 Model Results: (row = real label, col = assigned label, order: positive, negative)
-[[ 9.  5.]
- [16. 20.]]
+[[10.  4.]
+ [17. 19.]]
 Total Accuracy: 0.58
-Average Training Accuracy: 0.55
-Average Testing Accuracy: 0.54
+Average Training Accuracy: 0.46
+Average Testing Accuracy: 0.48
+num components parameters: [1]
+covariance type parameters: ['spherical']
 
-Tuning parameter accuracies :
-[[0.58]]
+Tuning parameter accuracies:
+[[0.476]]
+Returning best model of the highest average accuracy parameter set
+Its testing accuracy is 0.58
+
 Wait a Minute! - Willow Smith.mp3 is not romantic!

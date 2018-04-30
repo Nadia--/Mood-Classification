@@ -149,4 +149,4 @@ def learn_classifier(positive_examples, negative_examples, split=0.5, num_trials
     print("Average Training Accuracy: %.2f" % avg_training_accuracy)
     print("Average Testing Accuracy: %.2f" % avg_testing_accuracy)
 
-    return best_positive_model, best_negative_model, best_accuracy
+    return best_positive_model, best_negative_model, best_accuracy, avg_testing_accuracy

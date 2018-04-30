@@ -64,9 +64,10 @@ def classify_examples(mood, video_ids, video_ids_to_moods):
 def classifier_tuning_while_learning(positive_examples, negative_examples, num_trials, num_components_variables,
                           covariance_type_variables):
     """ Method to run classifiers with various parameters to see which will perform the best """
-    best_accuracy = 0
+    best_average_accuracy = 0
     best_positive_model = None
     best_negative_model = None
+    best_actual_accuracy = 0
 
     accuracies = np.zeros((len(num_components_variables), len(covariance_type_variables)))
 
@@ -75,17 +76,17 @@ def classifier_tuning_while_learning(positive_examples, negative_examples, num_t
 
             print("\nRunning classifier for: \n%d components, \n%s covariance type" % (num_components, covariance_type))
 
-            positive_model, negative_model, accuracy = ml.learn_classifier(positive_examples, negative_examples,
-                                                                           num_trials=num_trials,
-                                                                           num_components=num_components,
-                                                                           covariance_type=covariance_type)
-            accuracies[nc_idx][ct_idx] = accuracy
+            positive_model, negative_model, best_accuracy, average_accuracy = \
+                ml.learn_classifier(positive_examples, negative_examples, num_trials=num_trials,
+                                    num_components=num_components, covariance_type=covariance_type)
+            accuracies[nc_idx][ct_idx] = average_accuracy
 
-            if accuracy > best_accuracy:
+            if average_accuracy > best_average_accuracy:
                 best_positive_model = positive_model
                 best_negative_model = negative_model
+                best_actual_accuracy = best_accuracy
 
-    return best_positive_model, best_negative_model, accuracies
+    return best_positive_model, best_negative_model, best_actual_accuracy, accuracies,
 
 
 def learn_classifier(video_ids_to_moods, mood, feats_file, num_trials=1, num_components_variables=[5],
@@ -118,10 +119,16 @@ def learn_classifier(video_ids_to_moods, mood, feats_file, num_trials=1, num_com
     positive_examples = [np.swapaxes(video_ids_to_features[video_id], 0, 1) for video_id in positive_video_ids]
     negative_examples = [np.swapaxes(video_ids_to_features[video_id], 0, 1) for video_id in negative_video_ids]
 
-    positive_model, negative_model, accuracies = \
+    positive_model, negative_model, model_accuracy, accuracies = \
         classifier_tuning_while_learning(positive_examples, negative_examples, num_trials, num_components_variables, covariance_type_variables)
-    print("\nTuning parameter accuracies :")
+
+    print("num components parameters: %s" % str(num_components_variables))
+    print("covariance type parameters: %s" % str(covariance_type_variables))
+    print("\nTuning parameter accuracies:")
     print(accuracies)
+
+    print("Returning best model of the highest accuracy parameter run")
+    print("Its testing accuracy is %.2f" % model_accuracy)
 
     return positive_model, negative_model
 

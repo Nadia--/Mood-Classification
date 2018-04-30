@@ -16,7 +16,6 @@ class TestFeatureExtraction(TestCase):
     def test_spectral_flux(self):
         audio, sr = get_audio('yzTuBuRdAyA')
         spectral_flux = get_spectral_flux(audio, sr, n_fft=1024, hop_length=256)
-        print(spectral_flux.shape)
         self.assertEqual((1, 43911), spectral_flux.shape, "spectral flux shape")
 
     def test_feature_extraction(self):
