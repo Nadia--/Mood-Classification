@@ -8,18 +8,18 @@ from unittest import TestCase
 
 class TestLastFm(TestCase):
 
-    def test_genre_counts(self):
-        counts = fm.genre_counts()
+    def test_mood_counts(self):
+        counts = fm.mood_counts()
         # for i in counts:
         #     print(i)
 
-        self.assertEqual((518, 'male vocals'), counts[0], "genre counts")
-        self.assertEqual((225, 'energetic'), counts[3], "genre counts")
+        self.assertEqual((518, 'male vocals'), counts[0], "mood counts")
+        self.assertEqual((225, 'energetic'), counts[3], "mood counts")
 
 
-    def test_albums_for_genres(self):
-        genres = ['Gospel']
-        albums_dict = fm.albums_for_genres(genres)
+    def test_albums_for_moods(self):
+        moods = ['Gospel']
+        albums_dict = fm.albums_for_moods(moods)
         # print(albums_dict)
         self.assertEqual(4, len(albums_dict), "simple album dict retrieval")
         self.assertTrue('Lady Soul' in albums_dict, "simple album dict retrieval")
@@ -27,8 +27,8 @@ class TestLastFm(TestCase):
         self.assertTrue('Gospel' in album.moods, "simple album dict retrieval")
         # print(album)
 
-        genres = ['warm', 'summer']
-        albums_dict = fm.albums_for_genres(genres)
+        moods = ['warm', 'summer']
+        albums_dict = fm.albums_for_moods(moods)
 
         self.assertEqual(191, len(albums_dict), "compound album dict retrieval")
         self.assertTrue('Gal Costa' in albums_dict, "compound album dict retrieval")
@@ -38,8 +38,8 @@ class TestLastFm(TestCase):
         # print(album)
 
     def test_album_songs(self):
-        genres = ['Gospel']
-        albums_dict = fm.albums_for_genres(genres)
+        moods = ['Gospel']
+        albums_dict = fm.albums_for_moods(moods)
         albums_dict = fm.populate_songs(albums_dict)
 
         # print(albums_dict)

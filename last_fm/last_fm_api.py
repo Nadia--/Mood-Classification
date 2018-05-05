@@ -4,7 +4,7 @@
 import json
 
 BASE_DIRECTORY = "./../data/last_fm_data/"
-MOODS_FILE = 'mood_to_artist-title'
+MOODS_FILE = 'genre_to_artist-title'
 ALBUMS_FILE = 'album_to_songs'
 
 """ 
