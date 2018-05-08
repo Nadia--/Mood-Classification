@@ -1,6 +1,6 @@
 # Project Libraries
 import hdf5_helper as hh
-import classifier as ml
+import gaussian_binary_classifier as ml
 
 # General Libraries
 

@@ -1,14 +1,14 @@
 # Project Libraries
-import last_fm_api as fm
+import rate_my_music_api as fm
 from youtube_song import YouTubeSong
-from download_audio import download_audio
+from data_obtainer.audio_downloader.download_audio import download_audio
 
 # General Libraries
 import json
 import logging
 
 """
-API for downloading songs from YouTube based off Pavle's Last.Fm data
+API for downloading songs from YouTube based off Pavle's RateMyMusic data
 """
 
 def save_video_id_to_moods(video_id_to_moods, moods, counter, depth):
@@ -28,7 +28,7 @@ def load_video_id_to_moods(moods, counter):
     filename = '-'.join(moods) + '-' + str(counter)
     return fm.load_dictionary(filename)
 
-def download_last_fm_data(moods, limit=None, depth=1):
+def download_rate_my_music_data(moods, limit=None, depth=1):
     """
     Gathers all albums from Last.Fm data that have any of mood labels
     Downloads songs from YouTube corresponding to songs from those albums
@@ -48,15 +48,15 @@ def download_last_fm_data(moods, limit=None, depth=1):
     error_counter = 0
     counter = 0
 
-    for last_fm_album in albums.values():
+    for rate_my_music_album in albums.values():
         if limit and counter == limit:
             break
         else:
             counter += 1
 
-        artist = last_fm_album.artist
-        songs = last_fm_album.songs
-        song_moods = last_fm_album.moods
+        artist = rate_my_music_album.artist
+        songs = rate_my_music_album.songs
+        song_moods = rate_my_music_album.moods
 
         for song_idx in range(depth):
             if song_idx >= len(songs):
@@ -72,7 +72,7 @@ def download_last_fm_data(moods, limit=None, depth=1):
                 logging.warning("Error finding a YouTube video id for this song, skipping!")
                 continue
 
-            # TODO: alternatively just parse for the words full album in title in video_id query
+            # TODO: parse for the words full album in title in video_id query in addition to this
 
             # Songs longer than 25 minutes tend to be either giant orchestral pieces or full albums
             if not song.is_good_duration(1*60, 25*60):
@@ -85,7 +85,7 @@ def download_last_fm_data(moods, limit=None, depth=1):
 
             if download_audio(video_id=youtube_video_id):
                 video_id_to_moods[youtube_video_id] = list(song_moods)
-                # TODO: create a reverse hashtable as well
+                # TODO: create a reverse hashtable as well or at least moods counts
             else:
                 error_counter += 1
                 logging.warning("Exception occurred with download, skipping!")

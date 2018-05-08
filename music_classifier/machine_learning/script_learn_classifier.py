@@ -1,6 +1,6 @@
 # Project Libraries
-import last_fm_downloader as fm_dl
-import last_fm_classifier as fm_cl
+import rate_my_music_downloader as fm_dl
+import music_classifier as fm_cl
 
 # General Libraries
 

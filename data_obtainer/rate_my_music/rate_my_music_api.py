@@ -8,14 +8,14 @@ MOODS_FILE = 'genre_to_artist-title'
 ALBUMS_FILE = 'album_to_songs'
 
 """ 
-API for working with Pavle's Last.Fm data set
+API for working with Pavle's RateMyMusic data set
 """
 
 # TODO: not LastFm but RateMyMusic.com
 
-class LastFmAlbum:
+class RateMyMusicAlbum:
     """
-    LastFmAlbum object stores artist, moods, and songs, which are necessary for
+    RateMyMusicAlbum object stores artist, moods, and songs, which are necessary for
     1) downloading audio tracks from YouTube by artist, song
     2) classifying said songs by moods
     """
@@ -65,14 +65,14 @@ def add_album_to_dictionary(album_dictionary, artist_album, mood):
     album = artist_album[1]
 
     if album not in album_dictionary:
-        last_fm_album = LastFmAlbum(album, artist)
+        last_fm_album = RateMyMusicAlbum(album, artist)
         album_dictionary[album] = last_fm_album
 
     album_dictionary[album].add_mood(mood)
 
 
 def albums_for_moods(moods):
-    """ Returns a dictionary of albums (with any mood from moods) mapped from album_title to LastFmAlbum """
+    """ Returns a dictionary of albums (with any mood from moods) mapped from album_title to RateMyMusicAlbum """
     album_dictionary = {}
 
     mood_dict = load_dictionary(MOODS_FILE)
@@ -94,7 +94,7 @@ def albums_for_moods(moods):
 
 
 def populate_songs(album_dictionary):
-    """ Updates all LastFmAlbums in album_dictionary with songs from album_to_song file """
+    """ Updates all RateMyMusicAlbums in album_dictionary with songs from album_to_song file """
     album_to_songs_dict = load_dictionary(ALBUMS_FILE)
 
     for album, last_fm_album in album_dictionary.items():

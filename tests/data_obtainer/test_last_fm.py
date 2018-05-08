@@ -1,5 +1,5 @@
 # Project Libraries
-import last_fm_api as fm
+import rate_my_music_api as fm
 
 # General Libraries
 from unittest import TestCase

@@ -2,7 +2,7 @@
 import feature_extraction as fe
 from feature_extraction import pFeats
 from feature_extraction import pSTFT
-import classifier as ml
+import gaussian_binary_classifier as ml
 
 # General Libraries
 import numpy as np
