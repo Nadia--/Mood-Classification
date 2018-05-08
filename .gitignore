@@ -1,11 +1,11 @@
 # Directories and Files to Exclude
 venv/
-.idea/
-data/youtube_data/5m_list/
-data/youtube_data/songs/
-data/last_fm_data/album_to_songs
-data/last_fm_data/artist_to_albums
-data/last_fm_data/genre_to_artist-title
+.idea
+data_obtainer/data/youtube_data/5m_list/
+data_obtainer/data/youtube_data/songs/
+data_obtainer/data/last_fm_data/album_to_songs
+date_obtainer/data/last_fm_data/artist_to_albums
+data_obtainer/data/last_fm_data/genre_to_artist-title
 
 # Types of Files to Exclude
 *__pycache__*
