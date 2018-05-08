@@ -1,50 +1,90 @@
 # Project Libraries
-import last_fm_downloader as fm_dl
 import feature_extraction as fe
+from feature_extraction import pFeats
+from feature_extraction import pSTFT
 import classifier as ml
-import last_fm_api as fm
 
 # General Libraries
 import numpy as np
-import json
 import itertools
 
 """ 
 API for learning and tuning a binary mood classifier from song audio features
 """
 
+class TuningParameters:
+    def __init__(self):
+        # Feature Extraction Parameters
+        self.sampling_rate = [48000]
+        self.stft = [pSTFT(2048, 512)]
+        self.feat_comb = [pFeats(mfcc=True, spectral_centroid=True, spectral_flux=True)]
+        self.num_mfccs = [20]
 
-def extract_features(video_ids):
-    """ Extracts audio features from audio tracks corresponding to YouTube video ids """
-    video_ids_to_features = {}
+        # Gaussian Model Parameters
+        self.num_components = [5]
+        self.covariance_type = ['diag']
 
-    counter = 0
-    for video_id in video_ids:
-        counter += 1
-        print(counter)
-        audio, sr = fe.get_audio(video_id)
-        feats = fe.extract_features(audio, sr)
-        video_ids_to_features[video_id] = feats
+def prepare_examples_dictionary(song_to_label_dict_loc, label, label_dir, limit):
+    """
+    Returns the first limit number of positive and negative examples as a dictionary
+    Also saves/loads data from cache, as appropriate
+    """
+    savefile = label_dir + '/' + 'examples' + '-' + limit
+    examples_dictionary = fe.load_dictionary(savefile)
 
-    return video_ids_to_features
+    if examples_dictionary is None:
+        song_to_label_dict = fe.load_dictionary(song_to_label_dict_loc)
+
+        positive_examples = []
+        negative_examples = []
+
+        for song, labels in song_to_label_dict.items():
+            if len(positive_examples) >= limit and len(negative_examples) >= limit:
+                break
+
+            if label in labels:
+                if len(positive_examples) < limit:
+                    positive_examples.append(song)
+            else:
+                if len(negative_examples) < limit:
+                    negative_examples.append(song)
+
+        examples_dictionary['positive'] = positive_examples
+        examples_dictionary['negative'] = negative_examples
+
+        fe.write_dictionary(savefile, examples_dictionary)
+
+    return examples_dictionary
 
 
-def extract_and_save_features(video_ids, filename):
-    """ Extract audio features and save to file """
-    video_ids_to_features = extract_features(video_ids)
-    video_ids_to_features_serialized = {key: value.tolist() for (key, value) in video_ids_to_features.items()}
+def tune_classifier(song_to_label_dict_loc, label, dataset_name, tuning_parameters=TuningParameters(), num_trials=5, limit=None):
+    dataset_dir = fe.prepare_directory([dataset_name])
+    label_dir = fe.prepare_directory([dataset_dir, label + '-' + limit])
+    examples_dictionary = prepare_examples_dictionary(song_to_label_dict_loc, label, label_dir, limit)
+    examples = examples_dictionary['positive'] + examples_dictionary['negative']
 
-    dir_name = fm.BASE_DIRECTORY + filename
-    with open(dir_name, 'w') as fp:
-        json.dump(video_ids_to_features_serialized, fp)
+    print("Obtained Positive and Negative Examples from Dataset")
+
+    for stft_parameters in tuning_parameters.stft:
+        stft_dir = fe.prepare_directory([label_dir, stft_parameters.dirname()])
+
+        fe.prepare_features(stft_dir, examples, tuning_parameters.feat_comb, tuning_parameters.num_mfccs)
+        print("Extracted all Features for STFT parameters: %s" % stft_parameters.dirname())
+
+        for feature_comb in tuning_parameters.feat_comb:
 
 
-def load_features(filename):
-    """ Load saved audio features from file """
-    video_ids_to_features_serialized = fm.load_dictionary(filename)
-    video_ids_to_features = {key: np.array(value) for (key, value) in video_ids_to_features_serialized.items()}
-    return video_ids_to_features
+            if feature_comb.mfcc:
+                for num_mfccs in tuning_parameters.num_mfccs:
+                    mfccs_dict = load_feature(stft_dir, "MFCC", num_mfccs)
 
+            if feature_comb.spectral_centroid:
+                spectral_centroids_dict = load_feature(stft_dir, "SPECT_CENT", "default")
+
+            if feature_comb.spectra_flux:
+                spectral_flux_dict = load_feature(stft_dir, "SPECT_FLUX", "default")
+
+            ...
 
 def classify_examples(mood, video_ids, video_ids_to_moods):
     """ Split examples into positive (have label) and negative (do not have label) """
@@ -63,7 +103,7 @@ def classify_examples(mood, video_ids, video_ids_to_moods):
 
 def classifier_tuning_while_learning(positive_examples, negative_examples, num_trials, num_components_variables,
                           covariance_type_variables):
-    """ Method to run classifiers with various parameters to see which will perform the best """
+    """ Method to run classifiers with various Gaussian parameters to see which will perform the best """
     best_average_accuracy = 0
     best_positive_model = None
     best_negative_model = None

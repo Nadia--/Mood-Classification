@@ -6,6 +6,7 @@ import urllib.parse
 import urllib.request
 import json
 from enum import Enum
+import re
 
 DEBUG = False
 
@@ -69,6 +70,32 @@ class YouTubeSong:
             return
         self.video_id = slist['items'][chosen_result]['id']['videoId']
         self.youtube_title = slist['items'][chosen_result]['snippet']['title']
+
+    def is_good_duration(self, lower_bound_sec, upper_bound_sec):
+        """
+        Returns whether the video duration is within specified bounds
+        Expensive because requires another query, which consumes quota
+        """
+        try:
+            metadata = query(YOUTUBE_VIDEOS_URL, {'id': self.video_id, 'part': 'contentDetails'})
+            duration = metadata['items'][0]['contentDetails']['duration']
+            dur = re.search('PT(\d+)M(\d+)S', duration)
+            if not dur:
+                self.set_error('error: duration is either seconds or hours long')
+                return False
+
+            minutes, seconds = map(int, re.search('PT(\d+)M(\d+)S', duration).groups())
+            self.duration = minutes * 60 + seconds
+            if self.duration < lower_bound_sec:
+                self.set_error('error: duration is too short: %s minutes' % (self.duration / 60))
+                return False
+            if self.duration > upper_bound_sec:
+                self.set_error('error: duration is too long: %s minutes' % (self.duration / 60))
+                return False
+            return True
+        except:
+            self.set_error('error: cannot parse duration query')
+            return False
 
     def fetch_youtube_comments(self, min_num_comments, max_num_comments, filter_list):
         """

@@ -11,9 +11,15 @@ import logging
 API for downloading songs from YouTube based off Pavle's Last.Fm data
 """
 
-def save_video_id_to_moods(video_id_to_moods, moods, counter):
+def save_video_id_to_moods(video_id_to_moods, moods, counter, depth):
     """ Helper function to save video_id_to_moods dictionary """
-    filename = fm.BASE_DIRECTORY + '-'.join(moods) + '-' + str(counter)
+
+    descriptor = 'all_moods'
+    if moods is not None:
+        descriptor = '-'.join(moods)
+
+    filename = fm.BASE_DIRECTORY + descriptor + '-' + str(counter) + '-' + str(depth)
+
     with open(filename, 'w') as fp:
         json.dump(video_id_to_moods, fp)
 
@@ -22,7 +28,7 @@ def load_video_id_to_moods(moods, counter):
     filename = '-'.join(moods) + '-' + str(counter)
     return fm.load_dictionary(filename)
 
-def download_last_fm_data(moods, limit=None):
+def download_last_fm_data(moods, limit=None, depth=1):
     """
     Gathers all albums from Last.Fm data that have any of mood labels
     Downloads songs from YouTube corresponding to songs from those albums
@@ -30,6 +36,7 @@ def download_last_fm_data(moods, limit=None):
 
     :param moods: Last.Fm moods we are interested in
     :param limit: maximum number of songs to work with
+    :param depth: the max number of songs to extract from every album
     """
 
     albums = fm.albums_for_moods(moods)
@@ -47,30 +54,42 @@ def download_last_fm_data(moods, limit=None):
         else:
             counter += 1
 
-        # TODO: using just the first song for a more even spread (for now)
         artist = last_fm_album.artist
-        song = last_fm_album.songs[0]
+        songs = last_fm_album.songs
         song_moods = last_fm_album.moods
 
-        print("\nalbum %d; artist: %s, title: %s, moods: %s" % (counter, artist, song, song_moods))
+        for song_idx in range(depth):
+            if song_idx >= len(songs):
+                break
+            song = songs[song_idx]
 
-        song = YouTubeSong(artist=artist, title=song)
-        song.fetch_video_id()
-        if song.error:
-            error_counter += 1
-            logging.warning("Error finding a YouTube video id for this song, skipping!")
-            continue
+            print("\nalbum %d; artist: %s, title: %s, moods: %s" % (counter, artist, song, song_moods))
 
-        youtube_video_id = song.video_id
-        print("youtube video_id = %s" % youtube_video_id)
+            song = YouTubeSong(artist=artist, title=song)
+            song.fetch_video_id()
+            if song.error:
+                error_counter += 1
+                logging.warning("Error finding a YouTube video id for this song, skipping!")
+                continue
 
-        # TODO: do not include pieces of over 15 minutes as part of the data set (full albums)
-        if download_audio(video_id=[youtube_video_id]):
-            video_id_to_moods[youtube_video_id] = list(song_moods)
-        else:
-            logging.warning("Exception occurred with download, skipping!")
-            continue
+            # TODO: alternatively just parse for the words full album in title in video_id query
 
-    save_video_id_to_moods(video_id_to_moods, moods, counter)
+            # Songs longer than 25 minutes tend to be either giant orchestral pieces or full albums
+            if not song.is_good_duration(1*60, 25*60):
+                error_counter += 1
+                logging.warning("Video id " + song.video_id + " duration error: " + song.error + ", skipping!")
+                continue
 
+            youtube_video_id = song.video_id
+            print("youtube video_id = %s" % youtube_video_id)
+
+            if download_audio(video_id=youtube_video_id):
+                video_id_to_moods[youtube_video_id] = list(song_moods)
+                # TODO: create a reverse hashtable as well
+            else:
+                error_counter += 1
+                logging.warning("Exception occurred with download, skipping!")
+                continue
+
+    save_video_id_to_moods(video_id_to_moods, moods, counter, depth)
 

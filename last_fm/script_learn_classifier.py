@@ -43,6 +43,7 @@ def intense_run():
     helper(num_components_variables, covariance_type_variables)
 
 
-intense_run()
+# intense_run()
 
+fm_dl.download_last_fm_data(None, depth=2)
 

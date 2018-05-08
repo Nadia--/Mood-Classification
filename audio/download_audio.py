@@ -25,7 +25,6 @@ ydl_opts = {
 
 def download_audio(video_id):
     """ Downloads audio files from a list of YouTube video ids """
-    print(video_id)
     url = YOUTUBE_VIDEO_URL + video_id
     print(url)
 

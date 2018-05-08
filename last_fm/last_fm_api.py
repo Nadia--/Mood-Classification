@@ -11,6 +11,8 @@ ALBUMS_FILE = 'album_to_songs'
 API for working with Pavle's Last.Fm data set
 """
 
+# TODO: not LastFm but RateMyMusic.com
+
 class LastFmAlbum:
     """
     LastFmAlbum object stores artist, moods, and songs, which are necessary for
@@ -21,7 +23,7 @@ class LastFmAlbum:
         self.album_name = album_name
         self.artist = artist
         self.moods = set()
-        self.songs = None
+        self.songs = []
 
     def add_mood(self, mood):
         self.moods = self.moods.union({mood})
@@ -76,6 +78,9 @@ def albums_for_moods(moods):
     mood_dict = load_dictionary(MOODS_FILE)
     bad_parse_ctr = 0
 
+    if moods is None:
+        moods = mood_dict.keys()
+
     for mood in moods:
         entries = mood_dict[mood]
         for entry in entries:
@@ -93,6 +98,8 @@ def populate_songs(album_dictionary):
     album_to_songs_dict = load_dictionary(ALBUMS_FILE)
 
     for album, last_fm_album in album_dictionary.items():
-        last_fm_album.songs = album_to_songs_dict[album]
+        if album in album_to_songs_dict:
+            last_fm_album.songs = album_to_songs_dict[album]
 
     return album_dictionary
+
