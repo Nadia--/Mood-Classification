@@ -409,32 +409,3 @@ Average accuracies over tuning parameters:
   [[[0.75  ]]]]]
 
 Best model accuracy from highest averaging parameter run is 0.85
-
-#######
-
-Data: melodic-warm-anxious-romantic-dark-10
-Label: romantic, Limit: 2
-Trials: 1
-
-Tuning Parameters:
-STFT parameters: [STFT(dft:0.10,hop:0.25)]
-Feature Combinations: [Comb(mfcc,cent,flux), Comb(mfcc,cent), Comb(mfcc), Comb(cent,flux)]
-Num MFCCs: [20]
-Gaussian Num Components [1]
-Gaussian Covariance Type: ['spherical']
-
-Average accuracies over tuning parameters:
-[[[[[0.5]]]
-
-
-  [[[0.5]]]
-
-
-  [[[1. ]]]
-
-
-  [[[1. ]]]]]
-
-Best model accuracy from highest averaging parameter run is 1.00
-
-#######
