@@ -12,6 +12,8 @@ import logging
 API for learning and tuning a binary mood classifier from song audio features
 """
 
+LOGFILE = "./../data/logs/log_results"
+
 
 class TuningParameters:
     def __init__(self):
@@ -21,8 +23,8 @@ class TuningParameters:
         self.num_mfccs = [20]
 
         # Gaussian Model Parameters
-        self.num_components = [5]
-        self.covariance_type = ['diag']
+        self.num_components = [1]
+        self.covariance_type = ['spherical']
 
     def __repr__(self):
         str_rep = "\nTuning Parameters:"
@@ -73,7 +75,7 @@ def cache_examples_dictionary(song_to_label_dict_loc, label, label_dir, limit):
 
     print("\nFor this label and data there are:")
     print("%d positive examples" % len(examples_dictionary['positive']))
-    print("%d negative examples" % len(examples_dictionary['positive']))
+    print("%d negative examples" % len(examples_dictionary['negative']))
 
     return examples_dictionary
 
@@ -104,6 +106,7 @@ def concatenate_features(examples, mfcc_dict, spectral_flux_dict, spectral_centr
     return example_feats
 
 
+
 def tune_classifier(music_data_dir, dict_name, label, dataset_name, tuning_parameters=TuningParameters(), num_trials=5, limit=None):
     """
     THIS ONLY WORKS ON SMALL DATA SAMPLES because it extracts all possible features and saves them to drive for purposes of caching work
@@ -131,7 +134,8 @@ def tune_classifier(music_data_dir, dict_name, label, dataset_name, tuning_param
     overall_accuracies = np.zeros((len(tuning_parameters.stft), len(tuning_parameters.feat_comb), len(tuning_parameters.num_mfccs),
                                    len(tuning_parameters.num_components), len(tuning_parameters.covariance_type)))
 
-    total_permuations = np.size(overall_accuracies)
+    shape = overall_accuracies.shape
+    total_permuations =  shape[0] * shape[1] * shape[2]
     counter = 0
 
     for sp_idx, stft_parameters in enumerate(tuning_parameters.stft):
@@ -148,7 +152,7 @@ def tune_classifier(music_data_dir, dict_name, label, dataset_name, tuning_param
                 mfcc_dict = maybe_dictionary(feature_comb.mfcc, fe.feature_dict_name(stft_dir, "MFCC", str(num_mfccs)))
 
                 print("Tuning Progress: %d%%" % (counter/total_permuations * 100))
-                # TODO: fix these numbers
+                # TODO: including tuning progress for gaussian classifier too?
 
                 positive_example_feats = concatenate_features(examples_dictionary['positive'], mfcc_dict, spectral_flux_dict, spectral_centroids_dict)
                 negative_example_feats = concatenate_features(examples_dictionary['negative'], mfcc_dict, spectral_flux_dict, spectral_centroids_dict)
@@ -174,13 +178,32 @@ def tune_classifier(music_data_dir, dict_name, label, dataset_name, tuning_param
                     counter += len(tuning_parameters.feat_comb) - 1
                     break
 
+
+
+    print("\nData: %s" % dict_name)
+    print("Label: %s, Limit: %d" %(label, limit))
+    print("Trials: %d" % num_trials)
     print(tuning_parameters)
-    print("\nAverage accuracies over tuning parameters:\n")
+    print("Average accuracies over tuning parameters:\n")
     print(overall_accuracies)
 
     print("Best model accuracy from highest averaging parameter run is %.2f" % best_actual_accuracy)
 
+    write_results_to_log(dict_name, label, limit, tuning_parameters, num_trials, overall_accuracies, best_actual_accuracy)
+
     return best_positive_model, best_negative_model, best_actual_accuracy, overall_accuracies
+
+
+def write_results_to_log(dict_name, label, limit, tuning_parameters, num_trials, overall_accuracies, best_accuracy):
+    with open(LOGFILE, 'a') as fp:
+        fp.write("\n\nData: %s" % dict_name)
+        fp.write("\nLabel: %s, Limit: %d" %(label, limit))
+        fp.write("\nTrials: %d" % num_trials)
+        fp.write("\n" + str(tuning_parameters))
+        fp.write("\nAverage accuracies over tuning parameters:\n")
+        fp.write(str(overall_accuracies))
+        fp.write("\n\nBest model accuracy from highest averaging parameter run is %.2f" % best_accuracy)
+        fp.write("\n\n#######")
 
 # TODO: create an online version without tuning and caching and etc, allow features to be extracted while learning
 

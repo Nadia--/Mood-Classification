@@ -1,0 +1,1977 @@
+
+WARNING:root:Requested 100 positive and negative examples, but data only 84 positive and 100 negative in data!
+Tuning Parameters:
+STFT parameters: [STFT(dft:0.10,hop:0.25)]
+Feature Combinations: [Comb(mfcc,cent,flux)]
+Num MFCCs: [20]
+Gaussian Num Components [1, 3, 5, 8]
+Gaussian Covariance Type: ['spherical', 'diag', 'tied']
+
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-100/
+
+For this label and data there are:
+84 positive examples
+84 negative examples
+Obtained Positive and Negative Examples from Dataset
+
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-100/d0.10_h0.25/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-100/d0.10_h0.25/MFCC/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-100/d0.10_h0.25/SPECT_CENT/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-100/d0.10_h0.25/SPECT_FLUX/
+Feature Extraction Progress: 0%
+Feature Extraction Progress: 1%
+Feature Extraction Progress: 1%
+Feature Extraction Progress: 2%
+Feature Extraction Progress: 2%
+Feature Extraction Progress: 3%
+Feature Extraction Progress: 3%
+Feature Extraction Progress: 4%
+Feature Extraction Progress: 4%
+Feature Extraction Progress: 5%
+Feature Extraction Progress: 5%
+Feature Extraction Progress: 6%
+Feature Extraction Progress: 7%
+Feature Extraction Progress: 7%
+Feature Extraction Progress: 8%
+Feature Extraction Progress: 8%
+Feature Extraction Progress: 9%
+Feature Extraction Progress: 9%
+Feature Extraction Progress: 10%
+Feature Extraction Progress: 10%
+Feature Extraction Progress: 11%
+Feature Extraction Progress: 11%
+Feature Extraction Progress: 12%
+Feature Extraction Progress: 13%
+Feature Extraction Progress: 13%
+Feature Extraction Progress: 14%
+Feature Extraction Progress: 14%
+Feature Extraction Progress: 15%
+Feature Extraction Progress: 15%
+Feature Extraction Progress: 16%
+Feature Extraction Progress: 16%
+Feature Extraction Progress: 17%
+Feature Extraction Progress: 17%
+Feature Extraction Progress: 18%
+Feature Extraction Progress: 19%
+Feature Extraction Progress: 19%
+Feature Extraction Progress: 20%
+Feature Extraction Progress: 20%
+Feature Extraction Progress: 21%
+Feature Extraction Progress: 21%
+Feature Extraction Progress: 22%
+Feature Extraction Progress: 22%
+Feature Extraction Progress: 23%
+Feature Extraction Progress: 23%
+Feature Extraction Progress: 24%
+Feature Extraction Progress: 25%
+Feature Extraction Progress: 25%
+Feature Extraction Progress: 26%
+Feature Extraction Progress: 26%
+Feature Extraction Progress: 27%
+Feature Extraction Progress: 27%
+Feature Extraction Progress: 28%
+Feature Extraction Progress: 28%
+Feature Extraction Progress: 29%
+Feature Extraction Progress: 29%
+Feature Extraction Progress: 30%
+Feature Extraction Progress: 30%
+Feature Extraction Progress: 31%
+Feature Extraction Progress: 32%
+Feature Extraction Progress: 32%
+Feature Extraction Progress: 33%
+Feature Extraction Progress: 33%
+Feature Extraction Progress: 34%
+Feature Extraction Progress: 34%
+Feature Extraction Progress: 35%
+Feature Extraction Progress: 35%
+Feature Extraction Progress: 36%
+Feature Extraction Progress: 36%
+Feature Extraction Progress: 37%
+Feature Extraction Progress: 38%
+Feature Extraction Progress: 38%
+Feature Extraction Progress: 39%
+Feature Extraction Progress: 39%
+Feature Extraction Progress: 40%
+Feature Extraction Progress: 40%
+Feature Extraction Progress: 41%
+Feature Extraction Progress: 41%
+Feature Extraction Progress: 42%
+Feature Extraction Progress: 42%
+Feature Extraction Progress: 43%
+Feature Extraction Progress: 44%
+Feature Extraction Progress: 44%
+Feature Extraction Progress: 45%
+Feature Extraction Progress: 45%
+Feature Extraction Progress: 46%
+Feature Extraction Progress: 46%
+Feature Extraction Progress: 47%
+Feature Extraction Progress: 47%
+Feature Extraction Progress: 48%
+Feature Extraction Progress: 48%
+Feature Extraction Progress: 49%
+Feature Extraction Progress: 50%
+Feature Extraction Progress: 50%
+Feature Extraction Progress: 51%
+Feature Extraction Progress: 51%
+Feature Extraction Progress: 52%
+Feature Extraction Progress: 52%
+Feature Extraction Progress: 53%
+Feature Extraction Progress: 53%
+Feature Extraction Progress: 54%
+Feature Extraction Progress: 54%
+Feature Extraction Progress: 55%
+Feature Extraction Progress: 55%
+Feature Extraction Progress: 56%
+Feature Extraction Progress: 57%
+Feature Extraction Progress: 57%
+Feature Extraction Progress: 58%
+Feature Extraction Progress: 58%
+Feature Extraction Progress: 59%
+Feature Extraction Progress: 59%
+Feature Extraction Progress: 60%
+Feature Extraction Progress: 60%
+Feature Extraction Progress: 61%
+Feature Extraction Progress: 61%
+Feature Extraction Progress: 62%
+Feature Extraction Progress: 63%
+Feature Extraction Progress: 63%
+Feature Extraction Progress: 64%
+Feature Extraction Progress: 64%
+Feature Extraction Progress: 65%
+Feature Extraction Progress: 65%
+Feature Extraction Progress: 66%
+Feature Extraction Progress: 66%
+Feature Extraction Progress: 67%
+Feature Extraction Progress: 67%
+Feature Extraction Progress: 68%
+Feature Extraction Progress: 69%
+Feature Extraction Progress: 69%
+Feature Extraction Progress: 70%
+Feature Extraction Progress: 70%
+Feature Extraction Progress: 71%
+Feature Extraction Progress: 71%
+Feature Extraction Progress: 72%
+Feature Extraction Progress: 72%
+Feature Extraction Progress: 73%
+Feature Extraction Progress: 73%
+Feature Extraction Progress: 74%
+Feature Extraction Progress: 75%
+Feature Extraction Progress: 75%
+Feature Extraction Progress: 76%
+Feature Extraction Progress: 76%
+Feature Extraction Progress: 77%
+Feature Extraction Progress: 77%
+Feature Extraction Progress: 78%
+Feature Extraction Progress: 78%
+Feature Extraction Progress: 79%
+Feature Extraction Progress: 79%
+Feature Extraction Progress: 80%
+Feature Extraction Progress: 80%
+Feature Extraction Progress: 81%
+Feature Extraction Progress: 82%
+Feature Extraction Progress: 82%
+Feature Extraction Progress: 83%
+Feature Extraction Progress: 83%
+Feature Extraction Progress: 84%
+Feature Extraction Progress: 84%
+Feature Extraction Progress: 85%
+Feature Extraction Progress: 85%
+Feature Extraction Progress: 86%
+Feature Extraction Progress: 86%
+Feature Extraction Progress: 87%
+Feature Extraction Progress: 88%
+Feature Extraction Progress: 88%
+Feature Extraction Progress: 89%
+Feature Extraction Progress: 89%
+Feature Extraction Progress: 90%
+Feature Extraction Progress: 90%
+Feature Extraction Progress: 91%
+Feature Extraction Progress: 91%
+Feature Extraction Progress: 92%
+Feature Extraction Progress: 92%
+Feature Extraction Progress: 93%
+Feature Extraction Progress: 94%
+Feature Extraction Progress: 94%
+Feature Extraction Progress: 95%
+Feature Extraction Progress: 95%
+Feature Extraction Progress: 96%
+Feature Extraction Progress: 96%
+Feature Extraction Progress: 97%
+Feature Extraction Progress: 97%
+Feature Extraction Progress: 98%
+Feature Extraction Progress: 98%
+Feature Extraction Progress: 99%
+Feature Extraction Progress: 100%
+Writing Feature Files...
+Done Extracting and Writing Features for STFT parameters: d0.10_h0.25
+Tuning Progress: 0%
+
+Running gaussian classifier for: 
+1 components, 
+spherical covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [22. 28.]]
+Total Accuracy: 0.66
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [23. 27.]]
+Total Accuracy: 0.61
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [21. 29.]]
+Total Accuracy: 0.66
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [24. 26.]]
+Total Accuracy: 0.62
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [19. 31.]]
+Total Accuracy: 0.66
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [25. 25.]]
+Total Accuracy: 0.62
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [19. 31.]]
+Total Accuracy: 0.65
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [26. 24.]]
+Total Accuracy: 0.61
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [20. 30.]]
+Total Accuracy: 0.68
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [20. 30.]]
+Total Accuracy: 0.62
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [25. 25.]]
+Total Accuracy: 0.58
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [16. 34.]]
+Total Accuracy: 0.66
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [23. 27.]]
+Total Accuracy: 0.61
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [17. 33.]]
+Total Accuracy: 0.67
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [20. 30.]]
+Total Accuracy: 0.66
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [22. 28.]]
+Total Accuracy: 0.60
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [21. 29.]]
+Total Accuracy: 0.63
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [22. 28.]]
+Total Accuracy: 0.65
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [22. 28.]]
+Total Accuracy: 0.66
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [23. 27.]]
+Total Accuracy: 0.62
+Average Training Accuracy: 0.65
+Average Testing Accuracy: 0.63
+
+Running gaussian classifier for: 
+1 components, 
+diag covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [20. 30.]]
+Total Accuracy: 0.71
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [20. 30.]]
+Total Accuracy: 0.71
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [18. 32.]]
+Total Accuracy: 0.68
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [27. 23.]]
+Total Accuracy: 0.61
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [18. 32.]]
+Total Accuracy: 0.70
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [23. 27.]]
+Total Accuracy: 0.66
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [20. 30.]]
+Total Accuracy: 0.73
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [19. 31.]]
+Total Accuracy: 0.64
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [19. 31.]]
+Total Accuracy: 0.67
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [22. 28.]]
+Total Accuracy: 0.62
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [16. 34.]]
+Total Accuracy: 0.74
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [19. 31.]]
+Total Accuracy: 0.64
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [18. 32.]]
+Total Accuracy: 0.71
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [18. 32.]]
+Total Accuracy: 0.66
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [22. 28.]]
+Total Accuracy: 0.63
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [18. 32.]]
+Total Accuracy: 0.67
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [18. 32.]]
+Total Accuracy: 0.72
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [26. 24.]]
+Total Accuracy: 0.60
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [19. 31.]]
+Total Accuracy: 0.67
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [17. 33.]]
+Total Accuracy: 0.72
+Average Training Accuracy: 0.70
+Average Testing Accuracy: 0.65
+
+Running gaussian classifier for: 
+1 components, 
+tied covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [10. 40.]]
+Total Accuracy: 0.87
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[25. 17.]
+ [23. 27.]]
+Total Accuracy: 0.57
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [ 9. 41.]]
+Total Accuracy: 0.87
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [24. 26.]]
+Total Accuracy: 0.63
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [ 7. 43.]]
+Total Accuracy: 0.90
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [27. 23.]]
+Total Accuracy: 0.61
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [10. 40.]]
+Total Accuracy: 0.84
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [23. 27.]]
+Total Accuracy: 0.59
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [13. 37.]]
+Total Accuracy: 0.84
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [23. 27.]]
+Total Accuracy: 0.70
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [14. 36.]]
+Total Accuracy: 0.79
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [24. 26.]]
+Total Accuracy: 0.64
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [15. 35.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [18. 32.]]
+Total Accuracy: 0.65
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [12. 38.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[24. 18.]
+ [19. 31.]]
+Total Accuracy: 0.60
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [10. 40.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [17. 33.]]
+Total Accuracy: 0.68
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [ 9. 41.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[22. 20.]
+ [11. 39.]]
+Total Accuracy: 0.66
+Average Training Accuracy: 0.84
+Average Testing Accuracy: 0.63
+
+Running gaussian classifier for: 
+3 components, 
+spherical covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [28. 22.]]
+Total Accuracy: 0.55
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [24. 26.]]
+Total Accuracy: 0.63
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [22. 28.]]
+Total Accuracy: 0.67
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [33. 17.]]
+Total Accuracy: 0.54
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [23. 27.]]
+Total Accuracy: 0.62
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [26. 24.]]
+Total Accuracy: 0.59
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [20. 30.]]
+Total Accuracy: 0.68
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [22. 28.]]
+Total Accuracy: 0.63
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [24. 26.]]
+Total Accuracy: 0.66
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [34. 16.]]
+Total Accuracy: 0.54
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [23. 27.]]
+Total Accuracy: 0.71
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[25. 17.]
+ [29. 21.]]
+Total Accuracy: 0.50
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [25. 25.]]
+Total Accuracy: 0.62
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [28. 22.]]
+Total Accuracy: 0.63
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [24. 26.]]
+Total Accuracy: 0.63
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [24. 26.]]
+Total Accuracy: 0.64
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [24. 26.]]
+Total Accuracy: 0.60
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [22. 28.]]
+Total Accuracy: 0.68
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [25. 25.]]
+Total Accuracy: 0.68
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [34. 16.]]
+Total Accuracy: 0.61
+Average Training Accuracy: 0.64
+Average Testing Accuracy: 0.60
+
+Running gaussian classifier for: 
+3 components, 
+diag covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [15. 35.]]
+Total Accuracy: 0.76
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [30. 20.]]
+Total Accuracy: 0.51
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [16. 34.]]
+Total Accuracy: 0.71
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[24. 18.]
+ [20. 30.]]
+Total Accuracy: 0.59
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [25. 25.]]
+Total Accuracy: 0.66
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [18. 32.]]
+Total Accuracy: 0.66
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [19. 31.]]
+Total Accuracy: 0.74
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [20. 30.]]
+Total Accuracy: 0.67
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[25. 17.]
+ [15. 35.]]
+Total Accuracy: 0.65
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[26. 16.]
+ [15. 35.]]
+Total Accuracy: 0.66
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [13. 37.]]
+Total Accuracy: 0.71
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[26. 16.]
+ [17. 33.]]
+Total Accuracy: 0.64
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [17. 33.]]
+Total Accuracy: 0.77
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [21. 29.]]
+Total Accuracy: 0.68
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [19. 31.]]
+Total Accuracy: 0.74
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [29. 21.]]
+Total Accuracy: 0.59
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [19. 31.]]
+Total Accuracy: 0.73
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [22. 28.]]
+Total Accuracy: 0.64
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [13. 37.]]
+Total Accuracy: 0.70
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[22. 20.]
+ [17. 33.]]
+Total Accuracy: 0.60
+Average Training Accuracy: 0.72
+Average Testing Accuracy: 0.62
+
+Running gaussian classifier for: 
+3 components, 
+tied covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [11. 39.]]
+Total Accuracy: 0.86
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [17. 33.]]
+Total Accuracy: 0.68
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [ 8. 42.]]
+Total Accuracy: 0.83
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [22. 28.]]
+Total Accuracy: 0.61
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [13. 37.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [21. 29.]]
+Total Accuracy: 0.67
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [12. 38.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [23. 27.]]
+Total Accuracy: 0.67
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [13. 37.]]
+Total Accuracy: 0.83
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [32. 18.]]
+Total Accuracy: 0.61
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [13. 37.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [22. 28.]]
+Total Accuracy: 0.63
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [11. 39.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [10. 40.]]
+Total Accuracy: 0.73
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [ 9. 41.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [22. 28.]]
+Total Accuracy: 0.64
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[41.  1.]
+ [15. 35.]]
+Total Accuracy: 0.83
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [22. 28.]]
+Total Accuracy: 0.63
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [14. 36.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[26. 16.]
+ [19. 31.]]
+Total Accuracy: 0.62
+Average Training Accuracy: 0.82
+Average Testing Accuracy: 0.65
+
+Running gaussian classifier for: 
+5 components, 
+spherical covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [26. 24.]]
+Total Accuracy: 0.60
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [21. 29.]]
+Total Accuracy: 0.66
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [20. 30.]]
+Total Accuracy: 0.68
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[24. 18.]
+ [20. 30.]]
+Total Accuracy: 0.59
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [22. 28.]]
+Total Accuracy: 0.65
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [26. 24.]]
+Total Accuracy: 0.61
+
+Trial 4
+D:\Dropbox\AAA\Senior\242\final project\Final Project\venv\lib\site-packages\sklearn\mixture\base.py:237: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  % (init + 1), ConvergenceWarning)
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [21. 29.]]
+Total Accuracy: 0.66
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [20. 30.]]
+Total Accuracy: 0.63
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [24. 26.]]
+Total Accuracy: 0.70
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [29. 21.]]
+Total Accuracy: 0.64
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [24. 26.]]
+Total Accuracy: 0.65
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [26. 24.]]
+Total Accuracy: 0.68
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [26. 24.]]
+Total Accuracy: 0.63
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [26. 24.]]
+Total Accuracy: 0.66
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [25. 25.]]
+Total Accuracy: 0.63
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [22. 28.]]
+Total Accuracy: 0.61
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [28. 22.]]
+Total Accuracy: 0.60
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [21. 29.]]
+Total Accuracy: 0.68
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [21. 29.]]
+Total Accuracy: 0.64
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [24. 26.]]
+Total Accuracy: 0.65
+Average Training Accuracy: 0.64
+Average Testing Accuracy: 0.64
+
+Running gaussian classifier for: 
+5 components, 
+diag covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [25. 25.]]
+Total Accuracy: 0.67
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [32. 18.]]
+Total Accuracy: 0.52
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[25. 17.]
+ [ 4. 46.]]
+Total Accuracy: 0.77
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[15. 27.]
+ [14. 36.]]
+Total Accuracy: 0.55
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [15. 35.]]
+Total Accuracy: 0.78
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [29. 21.]]
+Total Accuracy: 0.59
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [16. 34.]]
+Total Accuracy: 0.79
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [21. 29.]]
+Total Accuracy: 0.66
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [14. 36.]]
+Total Accuracy: 0.79
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [21. 29.]]
+Total Accuracy: 0.61
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [14. 36.]]
+Total Accuracy: 0.74
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [20. 30.]]
+Total Accuracy: 0.70
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [14. 36.]]
+Total Accuracy: 0.79
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [27. 23.]]
+Total Accuracy: 0.61
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [12. 38.]]
+Total Accuracy: 0.78
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[26. 16.]
+ [19. 31.]]
+Total Accuracy: 0.62
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [12. 38.]]
+Total Accuracy: 0.82
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [15. 35.]]
+Total Accuracy: 0.70
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [14. 36.]]
+Total Accuracy: 0.76
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [19. 31.]]
+Total Accuracy: 0.66
+Average Training Accuracy: 0.77
+Average Testing Accuracy: 0.62
+
+Running gaussian classifier for: 
+5 components, 
+tied covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [ 9. 41.]]
+Total Accuracy: 0.87
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [25. 25.]]
+Total Accuracy: 0.58
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [11. 39.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [27. 23.]]
+Total Accuracy: 0.63
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [ 8. 42.]]
+Total Accuracy: 0.89
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[26. 16.]
+ [18. 32.]]
+Total Accuracy: 0.63
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [ 8. 42.]]
+Total Accuracy: 0.89
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [17. 33.]]
+Total Accuracy: 0.67
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [ 8. 42.]]
+Total Accuracy: 0.89
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [24. 26.]]
+Total Accuracy: 0.65
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [ 8. 42.]]
+Total Accuracy: 0.88
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [18. 32.]]
+Total Accuracy: 0.66
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [ 7. 43.]]
+Total Accuracy: 0.89
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [22. 28.]]
+Total Accuracy: 0.65
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [10. 40.]]
+Total Accuracy: 0.84
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [18. 32.]]
+Total Accuracy: 0.65
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [14. 36.]]
+Total Accuracy: 0.83
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [21. 29.]]
+Total Accuracy: 0.66
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [12. 38.]]
+Total Accuracy: 0.84
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [18. 32.]]
+Total Accuracy: 0.64
+Average Training Accuracy: 0.87
+Average Testing Accuracy: 0.64
+
+Running gaussian classifier for: 
+8 components, 
+spherical covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [17. 33.]]
+Total Accuracy: 0.73
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [23. 27.]]
+Total Accuracy: 0.64
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [23. 27.]]
+Total Accuracy: 0.63
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [18. 32.]]
+Total Accuracy: 0.67
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [23. 27.]]
+Total Accuracy: 0.63
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [22. 28.]]
+Total Accuracy: 0.66
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [19. 31.]]
+Total Accuracy: 0.68
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [25. 25.]]
+Total Accuracy: 0.62
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [24. 26.]]
+Total Accuracy: 0.58
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [16. 34.]]
+Total Accuracy: 0.70
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [20. 30.]]
+Total Accuracy: 0.64
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [22. 28.]]
+Total Accuracy: 0.66
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [20. 30.]]
+Total Accuracy: 0.72
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [25. 25.]]
+Total Accuracy: 0.62
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [21. 29.]]
+Total Accuracy: 0.67
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[30. 12.]
+ [24. 26.]]
+Total Accuracy: 0.61
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [18. 32.]]
+Total Accuracy: 0.72
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[28. 14.]
+ [26. 24.]]
+Total Accuracy: 0.57
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[32. 10.]
+ [24. 26.]]
+Total Accuracy: 0.63
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [17. 33.]]
+Total Accuracy: 0.65
+Average Training Accuracy: 0.66
+Average Testing Accuracy: 0.64
+
+Running gaussian classifier for: 
+8 components, 
+diag covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [12. 38.]]
+Total Accuracy: 0.79
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[31. 11.]
+ [21. 29.]]
+Total Accuracy: 0.65
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [12. 38.]]
+Total Accuracy: 0.77
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[27. 15.]
+ [16. 34.]]
+Total Accuracy: 0.66
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [ 7. 43.]]
+Total Accuracy: 0.88
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[25. 17.]
+ [24. 26.]]
+Total Accuracy: 0.55
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[41.  1.]
+ [21. 29.]]
+Total Accuracy: 0.76
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[40.  2.]
+ [31. 19.]]
+Total Accuracy: 0.64
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[41.  1.]
+ [18. 32.]]
+Total Accuracy: 0.79
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [28. 22.]]
+Total Accuracy: 0.64
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[23. 19.]
+ [ 5. 45.]]
+Total Accuracy: 0.74
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[15. 27.]
+ [15. 35.]]
+Total Accuracy: 0.54
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [15. 35.]]
+Total Accuracy: 0.77
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [25. 25.]]
+Total Accuracy: 0.63
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [15. 35.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[26. 16.]
+ [16. 34.]]
+Total Accuracy: 0.65
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[26. 16.]
+ [ 5. 45.]]
+Total Accuracy: 0.77
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[14. 28.]
+ [15. 35.]]
+Total Accuracy: 0.53
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [10. 40.]]
+Total Accuracy: 0.86
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[29. 13.]
+ [25. 25.]]
+Total Accuracy: 0.59
+Average Training Accuracy: 0.79
+Average Testing Accuracy: 0.61
+
+Running gaussian classifier for: 
+8 components, 
+tied covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[41.  1.]
+ [17. 33.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [27. 23.]]
+Total Accuracy: 0.61
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[41.  1.]
+ [13. 37.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [28. 22.]]
+Total Accuracy: 0.64
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[42.  0.]
+ [18. 32.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [30. 20.]]
+Total Accuracy: 0.61
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [11. 39.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[38.  4.]
+ [25. 25.]]
+Total Accuracy: 0.68
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[41.  1.]
+ [12. 38.]]
+Total Accuracy: 0.86
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[33.  9.]
+ [23. 27.]]
+Total Accuracy: 0.65
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [10. 40.]]
+Total Accuracy: 0.83
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[34.  8.]
+ [20. 30.]]
+Total Accuracy: 0.70
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[41.  1.]
+ [13. 37.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[35.  7.]
+ [28. 22.]]
+Total Accuracy: 0.62
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[42.  0.]
+ [13. 37.]]
+Total Accuracy: 0.86
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[37.  5.]
+ [26. 24.]]
+Total Accuracy: 0.66
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[42.  0.]
+ [12. 38.]]
+Total Accuracy: 0.87
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[39.  3.]
+ [30. 20.]]
+Total Accuracy: 0.64
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[42.  0.]
+ [14. 36.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[36.  6.]
+ [26. 24.]]
+Total Accuracy: 0.65
+Average Training Accuracy: 0.84
+Average Testing Accuracy: 0.65
+
+Tuning Parameters:
+STFT parameters: [STFT(dft:0.10,hop:0.25)]
+Feature Combinations: [Comb(mfcc,cent,flux)]
+Num MFCCs: [20]
+Gaussian Num Components [1, 3, 5, 8]
+Gaussian Covariance Type: ['spherical', 'diag', 'tied']
+
+
+Average accuracies over tuning parameters:
+
+[[[[[0.62826087 0.65326087 0.6326087 ]
+    [0.6        0.625      0.65      ]
+    [0.6423913  0.62173913 0.64347826]
+    [0.64021739 0.60978261 0.64673913]]]]]
+Best model accuracy from highest averaging parameter run is 0.70
