@@ -13,8 +13,8 @@ YOUTUBE_VIDEO_URL = 'https://www.youtube.com/watch?v='
 """ download options """
 ydl_opts = {
     'format': 'bestaudio/best',
-    'outtmpl': 'D:/Dropbox/AAA/Senior/242/final project/Final Project/data/youtube_data/songs/%(id)s.%(title)s.%(ext)s)',
-    'download_archive': 'D:/Dropbox/AAA/Senior/242/final project/Final Project/data/youtube_data/songs/dl_archive',
+    'outtmpl': 'D:/Dropbox/AAA/Senior/242/final project/Final Project/data/rate_my_music/songs/%(id)s.%(ext)s)',
+    'download_archive': 'D:/Dropbox/AAA/Senior/242/final project/Final Project/data/rate_my_music/songs/dl_archive',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
         'preferredcodec': 'mp3',

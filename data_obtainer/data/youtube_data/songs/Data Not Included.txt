@@ -1,1 +1,0 @@
-Song files take up too much space and may violate copyright, thus they are not included in the repository.

@@ -2,21 +2,21 @@
 import feature_extraction as fe
 from feature_extraction import pFeats
 from feature_extraction import pSTFT
-import gaussian_binary_classifier as ml
+import gaussian_binary_classifier as gbc
 
 # General Libraries
 import numpy as np
-import itertools
+import logging
 
 """ 
 API for learning and tuning a binary mood classifier from song audio features
 """
 
+
 class TuningParameters:
     def __init__(self):
         # Feature Extraction Parameters
-        self.sampling_rate = [48000]
-        self.stft = [pSTFT(2048, 512)]
+        self.stft = [pSTFT(.1, 0.25)]
         self.feat_comb = [pFeats(mfcc=True, spectral_centroid=True, spectral_flux=True)]
         self.num_mfccs = [20]
 
@@ -24,16 +24,28 @@ class TuningParameters:
         self.num_components = [5]
         self.covariance_type = ['diag']
 
-def prepare_examples_dictionary(song_to_label_dict_loc, label, label_dir, limit):
+    def __repr__(self):
+        str_rep = "\nTuning Parameters:"
+        str_rep += "\nSTFT parameters: " + str(self.stft)
+        str_rep += "\nFeature Combinations: " + str(self.feat_comb)
+        str_rep += "\nNum MFCCs: " + str(self.num_mfccs)
+        str_rep += "\nGaussian Num Components " + str(self.num_components)
+        str_rep += "\nGaussian Covariance Type: " + str(self.covariance_type)
+        str_rep += '\n'
+        return str_rep
+
+
+def cache_examples_dictionary(song_to_label_dict_loc, label, label_dir, limit):
     """
     Returns the first limit number of positive and negative examples as a dictionary
     Also saves/loads data from cache, as appropriate
     """
-    savefile = label_dir + '/' + 'examples' + '-' + limit
-    examples_dictionary = fe.load_dictionary(savefile)
+    savefile = label_dir + '/' + 'examples'
+    examples_dictionary = fe.read_dictionary(savefile)
+
 
     if examples_dictionary is None:
-        song_to_label_dict = fe.load_dictionary(song_to_label_dict_loc)
+        song_to_label_dict = fe.read_dictionary(song_to_label_dict_loc)
 
         positive_examples = []
         negative_examples = []
@@ -49,134 +61,138 @@ def prepare_examples_dictionary(song_to_label_dict_loc, label, label_dir, limit)
                 if len(negative_examples) < limit:
                     negative_examples.append(song)
 
+        if len(positive_examples) != limit or len(negative_examples) != limit:
+            logging.warning("Requested %d positive and negative examples, but data only %d positive and %d negative in data!" %
+                            (limit, len(positive_examples), len(negative_examples)))
+
+        examples_dictionary = {}
         examples_dictionary['positive'] = positive_examples
         examples_dictionary['negative'] = negative_examples
 
         fe.write_dictionary(savefile, examples_dictionary)
 
+    print("\nFor this label and data there are:")
+    print("%d positive examples" % len(examples_dictionary['positive']))
+    print("%d negative examples" % len(examples_dictionary['positive']))
+
     return examples_dictionary
 
 
-def tune_classifier(song_to_label_dict_loc, label, dataset_name, tuning_parameters=TuningParameters(), num_trials=5, limit=None):
-    dataset_dir = fe.prepare_directory([dataset_name])
-    label_dir = fe.prepare_directory([dataset_dir, label + '-' + limit])
-    examples_dictionary = prepare_examples_dictionary(song_to_label_dict_loc, label, label_dir, limit)
+def maybe_dictionary(bool, feature_dict_name):
+    if bool:
+        return fe.read_feats_dictionary(feature_dict_name)
+    return None
+
+
+def concatenate_features(examples, mfcc_dict, spectral_flux_dict, spectral_centroids_dict):
+    example_feats = []
+
+    for song in examples:
+        feats = [None] * 3
+
+        if mfcc_dict is not None:
+            feats[0] = mfcc_dict[song]
+        if spectral_flux_dict is not None:
+            feats[1] = spectral_flux_dict[song]
+        if spectral_centroids_dict is not None:
+            feats[2] = spectral_centroids_dict[song]
+
+        feats = [feat for feat in feats if feat is not None]
+        example_features = np.concatenate(tuple(feats))
+        example_feats.append(np.swapaxes(example_features, 0, 1))
+
+    return example_feats
+
+
+def tune_classifier(music_data_dir, dict_name, label, dataset_name, tuning_parameters=TuningParameters(), num_trials=5, limit=None):
+    """
+    THIS ONLY WORKS ON SMALL DATA SAMPLES because it extracts all possible features and saves them to drive for purposes of caching work
+
+    :param music_data_dir:
+    :param dict_name:
+    :param label:
+    :param dataset_name:
+    :param tuning_parameters:
+    :param num_trials:
+    :param limit:
+    :return:
+    """
+    dataset_dir = fe.cache_directory(dataset_name)
+    label_dir = fe.cache_directory(label + '-' + str(limit), base=dataset_dir)
+    examples_dictionary = cache_examples_dictionary(music_data_dir + 'dictionaries/' + dict_name, label, label_dir, limit)
     examples = examples_dictionary['positive'] + examples_dictionary['negative']
+    print("Obtained Positive and Negative Examples from Dataset\n")
 
-    print("Obtained Positive and Negative Examples from Dataset")
-
-    for stft_parameters in tuning_parameters.stft:
-        stft_dir = fe.prepare_directory([label_dir, stft_parameters.dirname()])
-
-        fe.prepare_features(stft_dir, examples, tuning_parameters.feat_comb, tuning_parameters.num_mfccs)
-        print("Extracted all Features for STFT parameters: %s" % stft_parameters.dirname())
-
-        for feature_comb in tuning_parameters.feat_comb:
-
-
-            if feature_comb.mfcc:
-                for num_mfccs in tuning_parameters.num_mfccs:
-                    mfccs_dict = load_feature(stft_dir, "MFCC", num_mfccs)
-
-            if feature_comb.spectral_centroid:
-                spectral_centroids_dict = load_feature(stft_dir, "SPECT_CENT", "default")
-
-            if feature_comb.spectra_flux:
-                spectral_flux_dict = load_feature(stft_dir, "SPECT_FLUX", "default")
-
-            ...
-
-def classify_examples(mood, video_ids, video_ids_to_moods):
-    """ Split examples into positive (have label) and negative (do not have label) """
-    positive_video_ids = []
-    negative_video_ids = []
-
-    for video_id in video_ids:
-        moods = video_ids_to_moods[video_id]
-        if mood in moods:
-            positive_video_ids.append(video_id)
-        else:
-            negative_video_ids.append(video_id)
-
-    return positive_video_ids, negative_video_ids
-
-
-def classifier_tuning_while_learning(positive_examples, negative_examples, num_trials, num_components_variables,
-                          covariance_type_variables):
-    """ Method to run classifiers with various Gaussian parameters to see which will perform the best """
     best_average_accuracy = 0
     best_positive_model = None
     best_negative_model = None
     best_actual_accuracy = 0
 
-    accuracies = np.zeros((len(num_components_variables), len(covariance_type_variables)))
+    overall_accuracies = np.zeros((len(tuning_parameters.stft), len(tuning_parameters.feat_comb), len(tuning_parameters.num_mfccs),
+                                   len(tuning_parameters.num_components), len(tuning_parameters.covariance_type)))
 
-    for nc_idx, num_components in enumerate(num_components_variables):
-        for ct_idx, covariance_type in enumerate(covariance_type_variables):
+    total_permuations = np.size(overall_accuracies)
+    counter = 0
 
-            print("\nRunning classifier for: \n%d components, \n%s covariance type" % (num_components, covariance_type))
+    for sp_idx, stft_parameters in enumerate(tuning_parameters.stft):
+        stft_dir = fe.cache_directory(stft_parameters.dir_name(), base=label_dir)
 
-            positive_model, negative_model, best_accuracy, average_accuracy = \
-                ml.learn_classifier(positive_examples, negative_examples, num_trials=num_trials,
-                                    num_components=num_components, covariance_type=covariance_type)
-            accuracies[nc_idx][ct_idx] = average_accuracy
+        fe.extract_features_to_cache(stft_dir, stft_parameters, examples, music_data_dir, tuning_parameters.feat_comb, tuning_parameters.num_mfccs)
+        print("Done Extracting and Writing Features for STFT parameters: %s" % stft_parameters.dir_name())
 
-            if average_accuracy > best_average_accuracy:
-                best_positive_model = positive_model
-                best_negative_model = negative_model
-                best_actual_accuracy = best_accuracy
+        for fc_idx, feature_comb in enumerate(tuning_parameters.feat_comb):
 
-    return best_positive_model, best_negative_model, best_actual_accuracy, accuracies,
+            spectral_centroids_dict = maybe_dictionary(feature_comb.spectral_centroid, fe.feature_dict_name(stft_dir, "SPECT_CENT", "default"))
+            spectral_flux_dict = maybe_dictionary(feature_comb.spectral_flux, fe.feature_dict_name(stft_dir, "SPECT_FLUX", "default"))
+            for nm_idx, num_mfccs in enumerate(tuning_parameters.num_mfccs):
+                mfcc_dict = maybe_dictionary(feature_comb.mfcc, fe.feature_dict_name(stft_dir, "MFCC", str(num_mfccs)))
+
+                print("Tuning Progress: %d%%" % (counter/total_permuations * 100))
+                # TODO: fix these numbers
+
+                positive_example_feats = concatenate_features(examples_dictionary['positive'], mfcc_dict, spectral_flux_dict, spectral_centroids_dict)
+                negative_example_feats = concatenate_features(examples_dictionary['negative'], mfcc_dict, spectral_flux_dict, spectral_centroids_dict)
+
+                positive_model, negative_model, best_accuracy, accuracies = \
+                    gbc.tune_gaussian_classifier(positive_example_feats,
+                                                 negative_example_feats,
+                                                 tuning_parameters.num_components,
+                                                 tuning_parameters.covariance_type,
+                                                 num_trials)
+
+                counter += 1
+
+                overall_accuracies[sp_idx][fc_idx][nm_idx] = accuracies
+
+                if np.max(accuracies) > best_average_accuracy:
+                    best_positive_model = positive_model
+                    best_negative_model = negative_model
+                    best_actual_accuracy = best_accuracy
+
+                # If we're not using mfccs as a feature, no need to iterate over number of mfccs parameters
+                if mfcc_dict is None:
+                    counter += len(tuning_parameters.feat_comb) - 1
+                    break
+
+    print(tuning_parameters)
+    print("\nAverage accuracies over tuning parameters:\n")
+    print(overall_accuracies)
+
+    print("Best model accuracy from highest averaging parameter run is %.2f" % best_actual_accuracy)
+
+    return best_positive_model, best_negative_model, best_actual_accuracy, overall_accuracies
+
+# TODO: create an online version without tuning and caching and etc, allow features to be extracted while learning
+
+# def predict_mood(audio_file_name, mood_model):
+#     #TODO: needs updating
+#
+#     """ Given the location of an song file and a mood model, predicts whether the song has that mood """
+#     positive_model, negative_model = mood_model
+#     audio, sr = fe.load_audio_file(audio_file_name)
+#     features = np.swapaxes(fe.extract_features(audio, sr), 0, 1)
+#     return ml.is_in_genre_prediction(positive_model, negative_model, features)
 
 
-def learn_classifier(video_ids_to_moods, mood, feats_file, num_trials=1, num_components_variables=[5],
-                     covariance_type_variables=['diag'], limit=None, extract_features=False):
-    """
-    Learns a classifier for specified mood, evaluates it on training and testing data, returns best model of several trials
-
-    :param video_ids_to_moods: dictionary mapping video_ids to list of moods
-    :param mood: mood we are classifying
-    :param feats_file: file to save/load the features corresponding to video_ids
-    :param num_trials: the number of trials to run for each set of parameters
-    :param num_components_variables: an array of values for number_components parameter
-    :param covariance_type_variables: an array of values for covariance_type parameter
-    :param limit: max number of video_ids to work with
-    :param extract_features: whether to extract features (or just load them from file)
-    """
-
-    if extract_features:
-        video_ids = itertools.islice(video_ids_to_moods.keys(), limit)
-        print("Extracting Features for %d songs..." % limit)
-        extract_and_save_features(video_ids, feats_file)
-
-    # Load from File
-    video_ids_to_features = load_features(feats_file)
-    video_ids = video_ids_to_features.keys()
-    print("Obtained Features from File")
-
-    positive_video_ids, negative_video_ids = classify_examples(mood, video_ids, video_ids_to_moods)
-
-    positive_examples = [np.swapaxes(video_ids_to_features[video_id], 0, 1) for video_id in positive_video_ids]
-    negative_examples = [np.swapaxes(video_ids_to_features[video_id], 0, 1) for video_id in negative_video_ids]
-
-    positive_model, negative_model, model_accuracy, accuracies = \
-        classifier_tuning_while_learning(positive_examples, negative_examples, num_trials, num_components_variables, covariance_type_variables)
-
-    print("num components parameters: %s" % str(num_components_variables))
-    print("covariance type parameters: %s" % str(covariance_type_variables))
-    print("\nTuning parameter accuracies:")
-    print(accuracies)
-
-    print("Returning best model of the highest accuracy parameter run")
-    print("Its testing accuracy is %.2f" % model_accuracy)
-
-    return positive_model, negative_model
-
-def predict_mood(audio_file_name, mood_model):
-    """ Given the location of an song file and a mood model, predicts whether the song has that mood """
-    positive_model, negative_model = mood_model
-    audio, sr = fe.load_audio_file(audio_file_name)
-    features = np.swapaxes(fe.extract_features(audio, sr), 0, 1)
-    return ml.is_in_genre_prediction(positive_model, negative_model, features)
 
 

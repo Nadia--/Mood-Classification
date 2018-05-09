@@ -3,7 +3,7 @@
 # General Libraries
 import json
 
-BASE_DIRECTORY = "./../data/last_fm_data/"
+BASE_DIRECTORY = "./../data/rate_my_music_data/"
 MOODS_FILE = 'genre_to_artist-title'
 ALBUMS_FILE = 'album_to_songs'
 
@@ -33,7 +33,7 @@ class RateMyMusicAlbum:
 
 
 def load_dictionary(filename):
-    """ Helper function to load a dictionary from last_fm_data by filename """
+    """ Helper function to load a dictionary from rate_my_music_data by filename """
     with open(BASE_DIRECTORY + filename, 'r') as f:
         dictionary = json.loads(f.read())
     return dictionary

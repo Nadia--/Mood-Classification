@@ -1,49 +1,19 @@
 # Project Libraries
-import rate_my_music_downloader as fm_dl
 import music_classifier as fm_cl
+import feature_extraction as fe
 
 # General Libraries
 
-def helper(num_components_variables, covariance_type_variables):
-    moods = ['melodic', 'warm', 'anxious', 'romantic', 'dark']
+MUSIC_DATA_DIR = "./../../data/rate_my_music/"
 
-    # fm_dl.download_last_fm_data(moods)
-    video_ids_to_moods = fm_dl.load_video_id_to_moods(moods, 500)
+tune_par = fm_cl.TuningParameters()
 
-    num_trials = 5
+tune_par.stft = [fe.pSTFT(0.05, 0.25), fe.pSTFT(0.1, 0.25), fe.pSTFT(0.15, 0.25)]
+tune_par.feat_comb = [fe.pFeats(True, True, True)]
+tune_par.num_mfccs = [20]
+tune_par.num_components = [1]
+tune_par.covariance_type = ['spherical']
 
-    romantic_model = fm_cl.learn_classifier(video_ids_to_moods, 'romantic', 'romantic_feats_file_100', num_trials, num_components_variables, covariance_type_variables, limit=100)
+print(tune_par)
 
-    SONG_DIR = "./../data/youtube_data/songs/"
-    song_name = 'Wait a Minute! - Willow Smith.mp3'
-
-    is_romantic = fm_cl.predict_mood(SONG_DIR+song_name, romantic_model)
-
-    if is_romantic:
-        print("\n%s is romantic!" % song_name)
-    else:
-        print("\n%s is not romantic!" % song_name)
-
-def dummy_run():
-    # Dummy Run
-    num_components_variables = [1]
-    covariance_type_variables = ['spherical']
-    helper(num_components_variables, covariance_type_variables)
-
-def real_run():
-    # More Real Run
-    num_components_variables = [1, 5, 10]
-    covariance_type_variables = ['spherical', 'diag']
-    helper(num_components_variables, covariance_type_variables)
-
-def intense_run():
-    # Good Run
-    num_components_variables = [1, 3, 5, 8]
-    covariance_type_variables = ['spherical', 'diag', 'tied']
-    helper(num_components_variables, covariance_type_variables)
-
-
-# intense_run()
-
-fm_dl.download_last_fm_data(None, depth=2)
-
+fm_cl.tune_classifier(MUSIC_DATA_DIR, 'all_moods-888-1', 'romantic', 'all_moods-888-1', tune_par, num_trials=10, limit=20)

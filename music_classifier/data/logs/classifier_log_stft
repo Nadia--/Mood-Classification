@@ -1,0 +1,569 @@
+
+Tuning Parameters:
+STFT parameters: [STFT(dft:0.05,hop:0.25), STFT(dft:0.10,hop:0.25), STFT(dft:0.15,hop:0.25)]
+Feature Combinations: [Comb(mfcc,cent,flux)]
+Num MFCCs: [20]
+Gaussian Num Components [1]
+Gaussian Covariance Type: ['spherical']
+
+
+For this label and data there are:
+20 positive examples
+20 negative examples
+Obtained Positive and Negative Examples from Dataset
+
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-20/d0.05_h0.25/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-20/d0.05_h0.25/MFCC/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-20/d0.05_h0.25/SPECT_CENT/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-20/d0.05_h0.25/SPECT_FLUX/
+Feature Extraction Progress: 2%
+Feature Extraction Progress: 5%
+Feature Extraction Progress: 7%
+Feature Extraction Progress: 10%
+Feature Extraction Progress: 12%
+Feature Extraction Progress: 15%
+Feature Extraction Progress: 17%
+Feature Extraction Progress: 20%
+Feature Extraction Progress: 22%
+Feature Extraction Progress: 25%
+Feature Extraction Progress: 27%
+Feature Extraction Progress: 30%
+Feature Extraction Progress: 32%
+Feature Extraction Progress: 35%
+Feature Extraction Progress: 37%
+Feature Extraction Progress: 40%
+Feature Extraction Progress: 42%
+Feature Extraction Progress: 45%
+Feature Extraction Progress: 47%
+Feature Extraction Progress: 50%
+Feature Extraction Progress: 52%
+Feature Extraction Progress: 55%
+Feature Extraction Progress: 57%
+Feature Extraction Progress: 60%
+Feature Extraction Progress: 62%
+Feature Extraction Progress: 65%
+Feature Extraction Progress: 67%
+Feature Extraction Progress: 70%
+Feature Extraction Progress: 72%
+Feature Extraction Progress: 75%
+Feature Extraction Progress: 77%
+Feature Extraction Progress: 80%
+Feature Extraction Progress: 82%
+Feature Extraction Progress: 85%
+Feature Extraction Progress: 87%
+Feature Extraction Progress: 90%
+Feature Extraction Progress: 92%
+Feature Extraction Progress: 95%
+Feature Extraction Progress: 97%
+Feature Extraction Progress: 100%
+Writing Feature Files...
+Done Extracting and Writing Features for STFT parameters: d0.05_h0.25
+Tuning Progress: 0%
+
+Running gaussian classifier for: 
+1 components, 
+spherical covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [2. 8.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[4. 6.]
+ [1. 9.]]
+Total Accuracy: 0.65
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [5. 5.]]
+Total Accuracy: 0.65
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [1. 9.]]
+Total Accuracy: 0.85
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [2. 8.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[6. 4.]
+ [2. 8.]]
+Total Accuracy: 0.70
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [2. 8.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [4. 6.]]
+Total Accuracy: 0.70
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [2. 8.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[7. 3.]
+ [4. 6.]]
+Total Accuracy: 0.65
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [4. 6.]]
+Total Accuracy: 0.70
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[6. 4.]
+ [3. 7.]]
+Total Accuracy: 0.65
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[6. 4.]
+ [1. 9.]]
+Total Accuracy: 0.75
+Average Training Accuracy: 0.76
+Average Testing Accuracy: 0.74
+Done Extracting and Writing Features for STFT parameters: d0.10_h0.25
+Tuning Progress: 33%
+
+Running gaussian classifier for: 
+1 components, 
+spherical covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[7. 3.]
+ [3. 7.]]
+Total Accuracy: 0.70
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[10.  0.]
+ [ 3.  7.]]
+Total Accuracy: 0.85
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [4. 6.]]
+Total Accuracy: 0.70
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [2. 8.]]
+Total Accuracy: 0.85
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [2. 8.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [5. 5.]]
+Total Accuracy: 0.70
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [4. 6.]]
+Total Accuracy: 0.75
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [2. 8.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [4. 6.]]
+Total Accuracy: 0.70
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [5. 5.]]
+Total Accuracy: 0.65
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [1. 9.]]
+Total Accuracy: 0.90
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [4. 6.]]
+Total Accuracy: 0.70
+Average Training Accuracy: 0.75
+Average Testing Accuracy: 0.78
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-20/d0.15_h0.25/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-20/d0.15_h0.25/MFCC/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-20/d0.15_h0.25/SPECT_CENT/
+Making directory: ./../data/features_cache/all_moods-888-1/romantic-20/d0.15_h0.25/SPECT_FLUX/
+Feature Extraction Progress: 2%
+Feature Extraction Progress: 5%
+Feature Extraction Progress: 7%
+Feature Extraction Progress: 10%
+Feature Extraction Progress: 12%
+Feature Extraction Progress: 15%
+Feature Extraction Progress: 17%
+Feature Extraction Progress: 20%
+Feature Extraction Progress: 22%
+Feature Extraction Progress: 25%
+Feature Extraction Progress: 27%
+Feature Extraction Progress: 30%
+Feature Extraction Progress: 32%
+Feature Extraction Progress: 35%
+Feature Extraction Progress: 37%
+Feature Extraction Progress: 40%
+Feature Extraction Progress: 42%
+Feature Extraction Progress: 45%
+Feature Extraction Progress: 47%
+Feature Extraction Progress: 50%
+Feature Extraction Progress: 52%
+Feature Extraction Progress: 55%
+Feature Extraction Progress: 57%
+Feature Extraction Progress: 60%
+Feature Extraction Progress: 62%
+Feature Extraction Progress: 65%
+Feature Extraction Progress: 67%
+Feature Extraction Progress: 70%
+Feature Extraction Progress: 72%
+Feature Extraction Progress: 75%
+Feature Extraction Progress: 77%
+Feature Extraction Progress: 80%
+Feature Extraction Progress: 82%
+Feature Extraction Progress: 85%
+Feature Extraction Progress: 87%
+Feature Extraction Progress: 90%
+Feature Extraction Progress: 92%
+Feature Extraction Progress: 95%
+Feature Extraction Progress: 97%
+Feature Extraction Progress: 100%
+Writing Feature Files...
+Done Extracting and Writing Features for STFT parameters: d0.15_h0.25
+Tuning Progress: 66%
+
+Running gaussian classifier for: 
+1 components, 
+spherical covariance type
+
+Trial 1
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[7. 3.]
+ [4. 6.]]
+Total Accuracy: 0.65
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [2. 8.]]
+Total Accuracy: 0.80
+
+Trial 2
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [4. 6.]]
+Total Accuracy: 0.70
+
+Trial 3
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Trial 4
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Trial 5
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [2. 8.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [4. 6.]]
+Total Accuracy: 0.75
+
+Trial 6
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[10.  0.]
+ [ 4.  6.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[7. 3.]
+ [2. 8.]]
+Total Accuracy: 0.75
+
+Trial 7
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [4. 6.]]
+Total Accuracy: 0.75
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [2. 8.]]
+Total Accuracy: 0.80
+
+Trial 8
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Trial 9
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [3. 7.]]
+Total Accuracy: 0.80
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [3. 7.]]
+Total Accuracy: 0.75
+
+Trial 10
+
+Training Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[8. 2.]
+ [1. 9.]]
+Total Accuracy: 0.85
+
+Testing Data Model Results
+Model Results: (row = real label, col = assigned label, order: positive, negative)
+[[9. 1.]
+ [5. 5.]]
+Total Accuracy: 0.70
+Average Training Accuracy: 0.78
+Average Testing Accuracy: 0.75
+
+Tuning Parameters:
+STFT parameters: [STFT(dft:0.05,hop:0.25), STFT(dft:0.10,hop:0.25), STFT(dft:0.15,hop:0.25)]
+Feature Combinations: [Comb(mfcc,cent,flux)]
+Num MFCCs: [20]
+Gaussian Num Components [1]
+Gaussian Covariance Type: ['spherical']
+
+
+Average accuracies over tuning parameters:
+
+[[[[[0.74 ]]]]
+
+
+
+ [[[[0.78 ]]]]
+
+
+
+ [[[[0.755]]]]]
+Best model accuracy from highest averaging parameter run is 0.80

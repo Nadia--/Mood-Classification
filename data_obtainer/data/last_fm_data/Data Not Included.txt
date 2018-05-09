@@ -1,3 +1,0 @@
-Scraped Last.fm data may violate their terms of service, thus it is not included in the repository.
-
-Saved features files are too large to upload.

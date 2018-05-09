@@ -93,8 +93,10 @@ def run_trial(positive_examples, negative_examples, split, num_components, covar
     negative_testing = negative_examples_shuffled[num_neg_training:]
 
     # Flattening Data
-    positive_concatenated = [frame_features for song in positive_training for frame_features in song]
-    negative_concatenated = [frame_features for song in negative_training for frame_features in song]
+    if len(positive_examples) > 1:
+        positive_concatenated = [frame_features for song in positive_training for frame_features in song]
+    if len(negative_examples) > 1:
+        negative_concatenated = [frame_features for song in negative_training for frame_features in song]
 
     # Training the Model
     positive_model = mixture.GaussianMixture(n_components=num_components, covariance_type=covariance_type)
@@ -112,7 +114,7 @@ def run_trial(positive_examples, negative_examples, split, num_components, covar
 
     return positive_model, negative_model, training_accuracy, testing_accuracy
 
-def learn_classifier(positive_examples, negative_examples, split=0.5, num_trials=1, num_components=5, covariance_type='diag'):
+def run_trials(positive_examples, negative_examples, split=0.5, num_trials=1, num_components=5, covariance_type='diag'):
     """
     Divides up to limit songs in basedir by belonging to a genre or not
     Runs up to num_trials of creating and evaluating a classifier for those songs and prints average accuracy
@@ -150,3 +152,30 @@ def learn_classifier(positive_examples, negative_examples, split=0.5, num_trials
     print("Average Testing Accuracy: %.2f" % avg_testing_accuracy)
 
     return best_positive_model, best_negative_model, best_accuracy, avg_testing_accuracy
+
+def tune_gaussian_classifier(positive_examples, negative_examples, num_components_pars, covariance_type_pars, num_trials):
+    """ Method to run classifiers with various Gaussian parameters to see which will perform the best """
+
+    best_average_accuracy = 0
+    best_positive_model = None
+    best_negative_model = None
+    best_actual_accuracy = 0
+
+    accuracies = np.zeros((len(num_components_pars), len(covariance_type_pars)))
+
+    for nc_idx, num_components in enumerate(num_components_pars):
+        for ct_idx, covariance_type in enumerate(covariance_type_pars):
+
+            print("\nRunning gaussian classifier for: \n%d components, \n%s covariance type" % (num_components, covariance_type))
+
+            positive_model, negative_model, best_accuracy, average_accuracy = \
+                run_trials(positive_examples, negative_examples, num_trials=num_trials,
+                           num_components=num_components, covariance_type=covariance_type)
+            accuracies[nc_idx][ct_idx] = average_accuracy
+
+            if average_accuracy > best_average_accuracy:
+                best_positive_model = positive_model
+                best_negative_model = negative_model
+                best_actual_accuracy = best_accuracy
+
+    return best_positive_model, best_negative_model, best_actual_accuracy, accuracies

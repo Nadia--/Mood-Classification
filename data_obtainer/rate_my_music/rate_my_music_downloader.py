@@ -1,11 +1,13 @@
 # Project Libraries
-import rate_my_music_api as fm
+import rate_my_music_api as rmm
 from youtube_song import YouTubeSong
 from data_obtainer.audio_downloader.download_audio import download_audio
 
 # General Libraries
 import json
 import logging
+
+DATA_DIRECTORY = "./../../data/rate_my_music/dictionaries/"
 
 """
 API for downloading songs from YouTube based off Pavle's RateMyMusic data
@@ -18,7 +20,7 @@ def save_video_id_to_moods(video_id_to_moods, moods, counter, depth):
     if moods is not None:
         descriptor = '-'.join(moods)
 
-    filename = fm.BASE_DIRECTORY + descriptor + '-' + str(counter) + '-' + str(depth)
+    filename = DATA_DIRECTORY + descriptor + '-' + str(counter) + '-' + str(depth)
 
     with open(filename, 'w') as fp:
         json.dump(video_id_to_moods, fp)
@@ -26,7 +28,9 @@ def save_video_id_to_moods(video_id_to_moods, moods, counter, depth):
 def load_video_id_to_moods(moods, counter):
     """ Helper function to load video_id_to_moods dictionary """
     filename = '-'.join(moods) + '-' + str(counter)
-    return fm.load_dictionary(filename)
+    with open(DATA_DIRECTORY + filename, 'r') as f:
+        dictionary = json.loads(f.read())
+    return dictionary
 
 def download_rate_my_music_data(moods, limit=None, depth=1):
     """
@@ -39,8 +43,8 @@ def download_rate_my_music_data(moods, limit=None, depth=1):
     :param depth: the max number of songs to extract from every album
     """
 
-    albums = fm.albums_for_moods(moods)
-    albums = fm.populate_songs(albums)
+    albums = rmm.albums_for_moods(moods)
+    albums = rmm.populate_songs(albums)
 
     print("Downloading songs from %d albums" % len(albums))
 
@@ -84,7 +88,7 @@ def download_rate_my_music_data(moods, limit=None, depth=1):
             print("youtube video_id = %s" % youtube_video_id)
 
             if download_audio(video_id=youtube_video_id):
-                video_id_to_moods[youtube_video_id] = list(song_moods)
+                video_id_to_moods[youtube_video_id + '.mp3'] = list(song_moods)
                 # TODO: create a reverse hashtable as well or at least moods counts
             else:
                 error_counter += 1
@@ -93,3 +97,4 @@ def download_rate_my_music_data(moods, limit=None, depth=1):
 
     save_video_id_to_moods(video_id_to_moods, moods, counter, depth)
 
+download_rate_my_music_data(None, depth=2)
